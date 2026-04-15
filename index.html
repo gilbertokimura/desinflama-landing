@@ -1,0 +1,1607 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Desinflama 7D — 7 días. Sin hinchazón.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════
+   RESET & BASE
+══════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --paper:   #F7F7F5;
+  --forest:  #1A3C2B;
+  --grid:    #3A3A38;
+  --coral:   #FF8C69;
+  --mint:    #9EFFBF;
+  --gold:    #F4D35E;
+  --line:    rgba(58,58,56,0.15);
+  --line2:   rgba(58,58,56,0.08);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--paper);
+  color: var(--forest);
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* ══════════════════════════════════════════
+   MOSAIC BACKGROUND
+══════════════════════════════════════════ */
+.mosaic-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 1;
+}
+
+/* ══════════════════════════════════════════
+   LAYOUT WRAPPER
+══════════════════════════════════════════ */
+.wrap { position: relative; z-index: 1; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* ══════════════════════════════════════════
+   NAVIGATION
+══════════════════════════════════════════ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(247,247,245,0.92);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  height: 56px;
+  display: flex;
+  align-items: center;
+}
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.nav-logo {
+  width: 32px; height: 32px;
+  background: var(--forest);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.nav-logo svg { width: 18px; height: 18px; }
+.nav-links {
+  display: flex; gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--forest);
+  text-decoration: none;
+  opacity: 0.6;
+  transition: opacity 0.15s;
+}
+.nav-links a:hover { opacity: 1; }
+.nav-cta { display: flex; gap: 10px; align-items: center; }
+.btn-ghost {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: 1px solid var(--forest);
+  background: transparent;
+  color: var(--forest);
+  padding: 7px 16px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+}
+.btn-ghost:hover { background: var(--forest); color: var(--paper); }
+.btn-solid {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: var(--forest);
+  color: var(--paper);
+  border: 1px solid var(--forest);
+  padding: 7px 16px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: opacity 0.15s;
+}
+.btn-solid:hover { opacity: 0.85; }
+
+/* ══════════════════════════════════════════
+   STATUS BADGE
+══════════════════════════════════════════ */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid rgba(26,60,43,0.2);
+  padding: 4px 12px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--forest);
+}
+.status-dot {
+  width: 8px; height: 8px;
+  background: var(--forest);
+  flex-shrink: 0;
+}
+.status-dot.coral { background: var(--coral); }
+.status-dot.mint  { background: #22c55e; }
+.status-dot.gold  { background: var(--gold); }
+
+/* ══════════════════════════════════════════
+   SECTION DIVIDER
+══════════════════════════════════════════ */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: var(--line);
+  position: relative;
+  z-index: 1;
+}
+
+/* ══════════════════════════════════════════
+   HERO
+══════════════════════════════════════════ */
+.hero {
+  padding: 120px 0 80px;
+  border-bottom: 1px solid var(--line);
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 64px;
+  align-items: center;
+}
+.hero-badge { margin-bottom: 28px; }
+.hero-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(52px, 6vw, 88px);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--forest);
+  margin-bottom: 32px;
+}
+.hero-title span.coral { color: var(--coral); }
+.hero-title span.accent {
+  position: relative;
+  display: inline-block;
+}
+.hero-title span.accent::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 0; right: 0;
+  height: 3px;
+  background: var(--coral);
+}
+.hero-sub {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+.hero-sub-line {
+  width: 1px;
+  background: var(--forest);
+  flex-shrink: 0;
+  margin-top: 2px;
+  height: auto;
+  align-self: stretch;
+}
+.hero-sub-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.8;
+  color: var(--forest);
+  opacity: 0.7;
+}
+.hero-actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+.btn-hero {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  background: var(--forest);
+  color: var(--paper);
+  border: 2px solid var(--forest);
+  padding: 16px 32px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.15s, color 0.15s;
+  letter-spacing: -0.01em;
+}
+.btn-hero:hover { background: transparent; color: var(--forest); }
+.btn-hero.coral-btn {
+  background: var(--coral);
+  border-color: var(--coral);
+  color: var(--forest);
+}
+.btn-hero.coral-btn:hover { background: transparent; color: var(--coral); }
+.hero-price-note {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.5;
+  align-self: center;
+}
+
+/* Hero visual */
+.hero-visual {
+  position: relative;
+}
+.hero-frame {
+  border: 1px solid var(--line);
+  aspect-ratio: 1;
+  position: relative;
+  overflow: hidden;
+  background: var(--paper);
+}
+.hero-frame-inner {
+  position: absolute;
+  inset: 24px;
+  border: 1px dashed rgba(26,60,43,0.2);
+  border-radius: 50%;
+  animation: spin 25s linear infinite;
+}
+.hero-orbit-dot {
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px; height: 10px;
+  background: var(--coral);
+}
+.hero-center-box {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 120px; height: 120px;
+  background: var(--forest);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 6px;
+}
+.hero-center-box .num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--paper);
+  line-height: 1;
+}
+.hero-center-box .label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--mint);
+}
+.hero-frame-corners::before, .hero-frame-corners::after {
+  content: '';
+  position: absolute;
+  width: 16px; height: 16px;
+  border-color: var(--forest);
+  border-style: solid;
+}
+.hero-frame-corners::before {
+  top: 12px; left: 12px;
+  border-width: 2px 0 0 2px;
+}
+.hero-frame-corners::after {
+  bottom: 12px; right: 12px;
+  border-width: 0 2px 2px 0;
+}
+.hero-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 0;
+  border-top: 1px solid var(--line);
+}
+.hero-meta-item {
+  padding: 16px 20px;
+  border-right: 1px solid var(--line);
+}
+.hero-meta-item:last-child { border-right: none; }
+.hero-meta-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--forest);
+  margin-bottom: 4px;
+}
+.hero-meta-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.5;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ══════════════════════════════════════════
+   PROBLEM STRIP
+══════════════════════════════════════════ */
+.problem-strip {
+  border-bottom: 1px solid var(--line);
+  padding: 48px 0;
+}
+.problem-strip-inner {
+  display: flex;
+  gap: 0;
+}
+.problem-item {
+  flex: 1;
+  padding: 0 32px;
+  border-right: 1px solid var(--line);
+  position: relative;
+}
+.problem-item:first-child { padding-left: 0; }
+.problem-item:last-child { border-right: none; }
+.problem-icon { font-size: 20px; margin-bottom: 12px; }
+.problem-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--coral);
+  margin-bottom: 6px;
+  display: block;
+}
+.problem-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--forest);
+  opacity: 0.85;
+}
+
+/* ══════════════════════════════════════════
+   REFRAME SECTION
+══════════════════════════════════════════ */
+.reframe {
+  padding: 96px 0;
+  border-bottom: 1px solid var(--line);
+}
+.reframe-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.reframe-cell {
+  background: var(--paper);
+  padding: 48px 40px;
+}
+.reframe-cell.dark {
+  background: var(--forest);
+  color: var(--paper);
+}
+.reframe-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  opacity: 0.5;
+  margin-bottom: 20px;
+  display: block;
+}
+.reframe-cell.dark .reframe-eyebrow { opacity: 0.5; color: var(--paper); }
+.reframe-heading {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+.reframe-body {
+  font-size: 14px;
+  line-height: 1.7;
+  opacity: 0.75;
+}
+.reframe-cell.dark .reframe-body { color: var(--paper); }
+.crossed-list { list-style: none; margin-top: 20px; }
+.crossed-list li {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: line-through;
+  opacity: 0.5;
+}
+.check-list { list-style: none; margin-top: 20px; }
+.check-list li {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--paper);
+}
+.check-list li .dot { width: 6px; height: 6px; background: var(--mint); flex-shrink: 0; }
+
+/* ══════════════════════════════════════════
+   BENTO GRID — O QUE INCLUI
+══════════════════════════════════════════ */
+.bento-section {
+  padding: 96px 0;
+  border-bottom: 1px solid var(--line);
+}
+.section-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 48px;
+}
+.section-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  opacity: 0.5;
+  display: block;
+  margin-bottom: 10px;
+}
+.section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+}
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto auto;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+}
+.bento-cell {
+  background: var(--paper);
+  padding: 32px;
+  position: relative;
+}
+.bento-cell.span2 { grid-column: span 2; }
+.bento-cell.dark { background: var(--forest); }
+.bento-accent {
+  width: 3px;
+  height: 32px;
+  position: absolute;
+  top: 32px;
+  left: 0;
+}
+.bento-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  opacity: 0.45;
+  margin-bottom: 16px;
+  display: block;
+}
+.bento-cell.dark .bento-label { color: var(--paper); }
+.bento-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+.bento-cell.dark .bento-title { color: var(--paper); }
+.bento-desc {
+  font-size: 13px;
+  line-height: 1.65;
+  opacity: 0.65;
+}
+.bento-cell.dark .bento-desc { color: var(--paper); }
+.bento-mockup {
+  margin-top: 20px;
+  border: 1px solid var(--line);
+  background: rgba(26,60,43,0.03);
+  padding: 14px 16px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  line-height: 1.8;
+  color: var(--forest);
+}
+.bento-cell.dark .bento-mockup {
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.12);
+  color: var(--paper);
+}
+.bento-mockup .line-green { color: var(--mint); }
+.bento-mockup .line-coral { color: var(--coral); }
+.bento-mockup .line-gold  { color: var(--gold); }
+.bento-big-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 72px;
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--forest);
+  margin-bottom: 8px;
+}
+.bento-cell.dark .bento-big-num { color: var(--mint); }
+
+/* ══════════════════════════════════════════
+   7 DAYS TIMELINE
+══════════════════════════════════════════ */
+.timeline-section {
+  padding: 96px 0;
+  border-bottom: 1px solid var(--line);
+}
+.timeline-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  margin-top: 48px;
+}
+.day-cell {
+  background: var(--paper);
+  padding: 24px 16px;
+  transition: background 0.15s;
+  cursor: default;
+}
+.day-cell:hover { background: var(--forest); }
+.day-cell:hover .day-num,
+.day-cell:hover .day-name,
+.day-cell:hover .day-focus { color: var(--paper); }
+.day-cell:hover .day-dot { background: var(--mint); }
+.day-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.4;
+  color: var(--forest);
+  margin-bottom: 12px;
+  display: block;
+}
+.day-dot {
+  width: 6px; height: 6px;
+  background: var(--coral);
+  margin-bottom: 12px;
+}
+.day-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--forest);
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+.day-focus {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--forest);
+  opacity: 0.45;
+  line-height: 1.5;
+}
+
+/* ══════════════════════════════════════════
+   TESTIMONIALS
+══════════════════════════════════════════ */
+.testimonials {
+  padding: 96px 0;
+  border-bottom: 1px solid var(--line);
+}
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  margin-top: 48px;
+}
+.testimonial-card {
+  background: var(--paper);
+  padding: 32px;
+}
+.testimonial-stars {
+  display: flex;
+  gap: 3px;
+  margin-bottom: 20px;
+}
+.star {
+  width: 10px; height: 10px;
+  background: var(--gold);
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+.testimonial-quote {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  line-height: 1.7;
+  color: var(--forest);
+  margin-bottom: 24px;
+  opacity: 0.8;
+}
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  border-top: 1px solid var(--line);
+  padding-top: 20px;
+}
+.author-avatar {
+  width: 32px; height: 32px;
+  background: var(--forest);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--paper);
+}
+.author-info-name {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--forest);
+}
+.author-info-role {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  opacity: 0.45;
+  letter-spacing: 0.06em;
+  margin-top: 2px;
+}
+
+/* ══════════════════════════════════════════
+   INCLUDES SECTION
+══════════════════════════════════════════ */
+.includes {
+  padding: 96px 0;
+  border-bottom: 1px solid var(--line);
+}
+.includes-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  margin-top: 48px;
+  align-items: start;
+}
+.includes-list { list-style: none; }
+.includes-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--line);
+}
+.includes-item:first-child { border-top: 1px solid var(--line); }
+.includes-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  opacity: 0.35;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.includes-content-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 4px;
+}
+.includes-content-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.includes-content-desc {
+  font-size: 12px;
+  opacity: 0.6;
+  line-height: 1.5;
+}
+.includes-visual {
+  border: 1px solid var(--line);
+  position: sticky;
+  top: 80px;
+}
+.includes-visual-header {
+  background: var(--forest);
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.includes-visual-header span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--paper);
+  opacity: 0.7;
+}
+.includes-visual-body { padding: 24px; }
+.price-display {
+  text-align: center;
+  padding: 32px 0;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 24px;
+}
+.price-old {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  text-decoration: line-through;
+  opacity: 0.4;
+  margin-bottom: 6px;
+}
+.price-main {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--forest);
+}
+.price-main sup { font-size: 22px; vertical-align: super; }
+.price-note {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.45;
+  margin-top: 6px;
+}
+.btn-buy {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  background: var(--forest);
+  color: var(--paper);
+  border: 2px solid var(--forest);
+  padding: 18px 24px;
+  cursor: pointer;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: background 0.15s, color 0.15s;
+  margin-bottom: 12px;
+}
+.btn-buy:hover { background: transparent; color: var(--forest); }
+.btn-buy.coral {
+  background: var(--coral);
+  border-color: var(--coral);
+  color: var(--forest);
+  margin-bottom: 0;
+}
+.btn-buy.coral:hover { background: transparent; color: var(--coral); }
+.order-bump {
+  margin-top: 16px;
+  border: 1px solid var(--line);
+  padding: 16px;
+  background: rgba(26,60,43,0.03);
+}
+.order-bump-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--coral);
+  margin-bottom: 8px;
+  display: block;
+}
+.order-bump-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.order-bump-desc {
+  font-size: 11px;
+  opacity: 0.6;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+.order-bump-price {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--coral);
+}
+.guarantee-box {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.guarantee-icon { font-size: 18px; flex-shrink: 0; }
+.guarantee-text {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  line-height: 1.6;
+  opacity: 0.65;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+/* ══════════════════════════════════════════
+   CTA FORM SECTION
+══════════════════════════════════════════ */
+.cta-section {
+  padding: 96px 0;
+  border-bottom: 1px solid var(--line);
+  background: var(--forest);
+}
+.cta-inner { text-align: center; }
+.cta-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--mint);
+  opacity: 0.8;
+  margin-bottom: 16px;
+  display: block;
+}
+.cta-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 700;
+  color: var(--paper);
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+}
+.cta-sub {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 12px;
+  color: var(--paper);
+  opacity: 0.5;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 48px;
+}
+/* Corner-marked box */
+.corner-box {
+  position: relative;
+  max-width: 520px;
+  margin: 0 auto;
+  border: 1px solid rgba(255,255,255,0.15);
+  padding: 40px;
+  background: rgba(255,255,255,0.04);
+}
+.corner-box::before, .corner-box::after,
+.corner-box .corner-tl, .corner-box .corner-br {
+  content: '';
+  position: absolute;
+  width: 12px; height: 12px;
+  border-color: var(--mint);
+  border-style: solid;
+}
+.corner-box::before  { top: -1px; left: -1px; border-width: 2px 0 0 2px; }
+.corner-box::after   { top: -1px; right: -1px; border-width: 2px 2px 0 0; }
+.corner-tl           { bottom: -1px; left: -1px; border-width: 0 0 2px 2px; }
+.corner-br           { bottom: -1px; right: -1px; border-width: 0 2px 2px 0; }
+.cta-btn {
+  display: block;
+  width: 100%;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  background: var(--coral);
+  color: var(--forest);
+  border: 2px solid var(--coral);
+  padding: 20px 32px;
+  cursor: pointer;
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: background 0.15s, color 0.15s;
+  margin-bottom: 16px;
+}
+.cta-btn:hover { background: transparent; color: var(--coral); }
+.cta-note {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--paper);
+  opacity: 0.35;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ══════════════════════════════════════════
+   FAQ
+══════════════════════════════════════════ */
+.faq-section {
+  padding: 96px 0;
+  border-bottom: 1px solid var(--line);
+}
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  margin-top: 48px;
+}
+.faq-item {
+  background: var(--paper);
+  padding: 28px 32px;
+}
+.faq-q {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.faq-q-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  opacity: 0.3;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.faq-a {
+  font-size: 13px;
+  line-height: 1.7;
+  opacity: 0.65;
+  padding-left: 28px;
+}
+
+/* ══════════════════════════════════════════
+   FOOTER
+══════════════════════════════════════════ */
+footer {
+  border-top: 1px solid var(--line);
+  padding: 32px 0;
+}
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.footer-logo-box {
+  width: 24px; height: 24px;
+  background: var(--forest);
+}
+.footer-brand {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  opacity: 0.5;
+}
+.footer-copy {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.3;
+}
+
+/* ══════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; }
+  .hero-visual { display: none; }
+  .reframe-grid { grid-template-columns: 1fr; }
+  .bento-grid { grid-template-columns: 1fr 1fr; }
+  .bento-cell.span2 { grid-column: span 2; }
+  .timeline-grid { grid-template-columns: repeat(4, 1fr); }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .includes-grid { grid-template-columns: 1fr; }
+  .includes-visual { position: static; }
+  .faq-grid { grid-template-columns: 1fr; }
+  .nav-links { display: none; }
+  .problem-strip-inner { flex-direction: column; gap: 24px; }
+  .problem-item { border-right: none; border-bottom: 1px solid var(--line); padding: 0 0 24px; }
+  .problem-item:last-child { border-bottom: none; }
+}
+@media (max-width: 600px) {
+  .bento-grid { grid-template-columns: 1fr; }
+  .bento-cell.span2 { grid-column: span 1; }
+  .timeline-grid { grid-template-columns: repeat(2, 1fr); }
+  .section-header { flex-direction: column; align-items: flex-start; gap: 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- MOSAIC BACKGROUND SVG -->
+<div class="mosaic-bg">
+<svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <pattern id="mosaic" x="0" y="0" width="240" height="240" patternUnits="userSpaceOnUse">
+      <!-- Large squares -->
+      <rect x="0"   y="0"   width="80"  height="80"  fill="#F7F7F5" stroke="rgba(58,58,56,0.08)" stroke-width="0.5"/>
+      <rect x="80"  y="0"   width="40"  height="40"  fill="#F7F7F5" stroke="rgba(58,58,56,0.08)" stroke-width="0.5"/>
+      <rect x="120" y="0"   width="60"  height="40"  fill="#F7F7F5" stroke="rgba(58,58,56,0.08)" stroke-width="0.5"/>
+      <rect x="180" y="0"   width="60"  height="80"  fill="#F7F7F5" stroke="rgba(58,58,56,0.08)" stroke-width="0.5"/>
+      <rect x="80"  y="40"  width="40"  height="40"  fill="#F7F7F5" stroke="rgba(58,58,56,0.08)" stroke-width="0.5"/>
+      <rect x="120" y="40"  width="60"  height="40"  fill="#F7F7F5" stroke="rgba(58,58,56,0.08)" stroke-width="0.5"/>
+      <!-- Horizontal strips -->
+      <rect x="0"   y="80"  width="120" height="40"  fill="#F7F7F5" stroke="rgba(58,58,56,0.08)" stroke-width="0.5"/>
+      <rect x="120" y="80"  width="60"  height="40"  fill="#F7F7F5" stroke="rgba(58,58,56,0.08)" stroke-width="0.5"/>
+      <!-- Vertical blocks -->
+      <rect x="0"   y="120" width="40"  height="120" fill="#F7F7F5" stroke="rgba(58,58,56,0.08)" stroke-width="0.5"/>
+      <rect x="40"  y="120" width="80"  height="60"  fill="#F7F7F5" stroke="rgba(58,58,56,0.08)" stroke-width="0.5"/>
+      <rect x="120" y="120" width="60"  height="60"  fill="#F7F7F5" stroke="rgba(58,58,56,0.08)" stroke-width="0.5"/>
+      <rect x="180" y="80"  width="60"  height="100" fill="#F7F7F5" stroke="rgba(58,58,56,0.08)" stroke-width="0.5"/>
+      <rect x="40"  y="180" width="80"  height="60"  fill="#F7F7F5" stroke="rgba(58,58,56,0.08)" stroke-width="0.5"/>
+      <rect x="120" y="180" width="60"  height="60"  fill="#F7F7F5" stroke="rgba(58,58,56,0.08)" stroke-width="0.5"/>
+      <rect x="180" y="180" width="60"  height="60"  fill="#F7F7F5" stroke="rgba(58,58,56,0.08)" stroke-width="0.5"/>
+    </pattern>
+  </defs>
+  <rect width="100%" height="100%" fill="url(#mosaic)"/>
+</svg>
+</div>
+
+<div class="wrap">
+
+<!-- ══════════════════════
+     NAVIGATION
+══════════════════════ -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="9" cy="9" r="6" stroke="white" stroke-width="1.5"/>
+        <path d="M9 4v5l3 2" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#programa">01. Programa</a></li>
+      <li><a href="#incluye">02. Incluye</a></li>
+      <li><a href="#testimonios">03. Testimonios</a></li>
+      <li><a href="#precio">04. Precio</a></li>
+    </ul>
+    <div class="nav-cta">
+      <a href="#precio" class="btn-ghost">Ver precio</a>
+      <a href="#precio" class="btn-solid">Empezar ahora →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ══════════════════════
+     HERO
+══════════════════════ -->
+<section class="hero" id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badge">
+          <span class="status-badge">
+            <span class="status-dot mint"></span>
+            Protocolo activo — 7 días
+          </span>
+        </div>
+        <h1 class="hero-title">
+          7 días.<br>
+          Sin <span class="accent">hinchazón</span>.<br>
+          <span class="coral">Sin dieta.</span>
+        </h1>
+        <div class="hero-sub">
+          <div class="hero-sub-line"></div>
+          <p class="hero-sub-text">
+            Protocolo antiinflamatorio completo.<br>
+            Acceso inmediato · Funciona offline.<br>
+            Compatible con cualquier estilo de vida.
+          </p>
+        </div>
+        <div class="hero-actions">
+          <a href="#precio" class="btn-hero coral-btn">Quiero empezar — $17</a>
+          <span class="hero-price-note">Pago único · Acceso de por vida</span>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-frame hero-frame-corners">
+          <div class="hero-frame-inner">
+            <div class="hero-orbit-dot"></div>
+          </div>
+          <div class="hero-center-box">
+            <span class="num">7</span>
+            <span class="label">días</span>
+          </div>
+          <!-- Corner decorations done via CSS pseudo-elements -->
+        </div>
+        <div class="hero-meta">
+          <div class="hero-meta-item">
+            <div class="hero-meta-num">50+</div>
+            <div class="hero-meta-label">Recetas VIP</div>
+          </div>
+          <div class="hero-meta-item">
+            <div class="hero-meta-num">15</div>
+            <div class="hero-meta-label">Módulos</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════
+     PROBLEM STRIP
+══════════════════════ -->
+<div class="section-divider"></div>
+<section class="problem-strip">
+  <div class="container">
+    <div class="problem-strip-inner">
+      <div class="problem-item">
+        <div class="problem-icon">😮‍💨</div>
+        <span class="problem-label">Síntoma #01</span>
+        <p class="problem-text">Barriga hinchada al final del día aunque comiste poco</p>
+      </div>
+      <div class="problem-item">
+        <div class="problem-icon">😴</div>
+        <span class="problem-label">Síntoma #02</span>
+        <p class="problem-text">Energía baja y cansancio sin razón aparente</p>
+      </div>
+      <div class="problem-item">
+        <div class="problem-icon">😣</div>
+        <span class="problem-label">Síntoma #03</span>
+        <p class="problem-text">Intestino lento, gases y digestión incómoda</p>
+      </div>
+      <div class="problem-item">
+        <div class="problem-icon">👗</div>
+        <span class="problem-label">Síntoma #04</span>
+        <p class="problem-text">Ropa que antes quedaba bien y ahora aprieta</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════
+     REFRAME
+══════════════════════ -->
+<div class="section-divider"></div>
+<section class="reframe" id="programa">
+  <div class="container">
+    <div class="reframe-grid">
+      <div class="reframe-cell">
+        <span class="reframe-eyebrow">Lo que crees</span>
+        <h2 class="reframe-heading">Crees que es grasa.<br>No lo es.</h2>
+        <p class="reframe-body">La mayoría de lo que percibes como "estar gorda" es en realidad inflamación crónica. Y eso cambia todo: la inflamación responde en días, no en meses.</p>
+        <ul class="crossed-list">
+          <li>❌ Es genética y no tiene solución</li>
+          <li>❌ Necesitas una dieta estricta</li>
+          <li>❌ Tienes que ir al gimnasio</li>
+          <li>❌ Solo mejora con medicamentos</li>
+        </ul>
+      </div>
+      <div class="reframe-cell dark">
+        <span class="reframe-eyebrow" style="color:var(--mint);">La realidad</span>
+        <h2 class="reframe-heading" style="color:var(--paper);">Es inflamación.<br>Se resuelve.</h2>
+        <p class="reframe-body">En 7 días, con cambios simples y sostenibles, tu cuerpo puede reducir la inflamación, mejorar la digestión y recuperar la energía. Sin restricciones extremas.</p>
+        <ul class="check-list">
+          <li><span class="dot"></span>Resultados visibles desde el día 2-3</li>
+          <li><span class="dot"></span>Sin contar calorías ni pesar comida</li>
+          <li><span class="dot"></span>Compatible con trabajo y familia</li>
+          <li><span class="dot"></span>Hábitos que se mantienen solos</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════
+     BENTO — QUÉ INCLUYE
+══════════════════════ -->
+<div class="section-divider"></div>
+<section class="bento-section" id="incluye">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <span class="section-eyebrow">Lo que obtienes</span>
+        <h2 class="section-title">Todo en un solo app.<br>Sin membresías.</h2>
+      </div>
+      <span class="status-badge"><span class="status-dot"></span>Acceso inmediato</span>
+    </div>
+
+    <div class="bento-grid">
+      <!-- Cell 1: Plan 7 días -->
+      <div class="bento-cell">
+        <div class="bento-accent" style="background:var(--coral);"></div>
+        <span class="bento-label">01 — Plan</span>
+        <h3 class="bento-title">Plan Día a Día<br>Completo</h3>
+        <p class="bento-desc">7 días estructurados con misión, nutrición, movimiento y ritual nocturno. Nunca te preguntas "¿qué hago hoy?"</p>
+        <div class="bento-mockup">
+          <div class="line-green">✓ DÍA_1 // Activar el Drenaje</div>
+          <div class="line-green">✓ DÍA_2 // Reset Digestivo</div>
+          <div class="line-coral">→ DÍA_3 // Alimentación Real</div>
+          <div style="opacity:0.4">  DÍA_4 // Ritmo Circadiano</div>
+          <div style="opacity:0.4">  DÍA_5 // Drenaje Profundo</div>
+        </div>
+      </div>
+
+      <!-- Cell 2: Academia -->
+      <div class="bento-cell span2">
+        <div class="bento-accent" style="background:var(--mint);"></div>
+        <span class="bento-label">02 — Academia</span>
+        <h3 class="bento-title">15 Módulos de Contenido<br>Científico</h3>
+        <p class="bento-desc">Cada módulo explica el porqué detrás del protocolo. No solo qué hacer — entiendes por qué funciona, y eso hace que lo mantengas.</p>
+        <div class="bento-mockup" style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <div><span class="line-gold">MODULE_01</span><br>¿Grasa o Inflamación?</div>
+          <div><span class="line-gold">MODULE_02</span><br>Nueva Identidad</div>
+          <div><span class="line-gold">MODULE_03</span><br>Estrés y Abdomen</div>
+          <div><span class="line-gold">MODULE_04</span><br>Alimentos Clave</div>
+        </div>
+      </div>
+
+      <!-- Cell 3: Dark — número grande -->
+      <div class="bento-cell dark">
+        <div class="bento-accent" style="background:var(--mint);"></div>
+        <span class="bento-label" style="color:var(--mint);opacity:0.7;">Recetario</span>
+        <div class="bento-big-num">50+</div>
+        <h3 class="bento-title" style="color:var(--paper);font-size:16px;">Recetas VIP<br>exclusivas</h3>
+        <p class="bento-desc" style="font-size:12px;">Jugos, shots, caldos, tés y aguas antiinflamatorias del protocolo avanzado.</p>
+      </div>
+
+      <!-- Cell 4: Guía -->
+      <div class="bento-cell">
+        <div class="bento-accent" style="background:var(--gold);"></div>
+        <span class="bento-label">04 — Guía</span>
+        <h3 class="bento-title">Guía de<br>Alimentación</h3>
+        <p class="bento-desc">Qué priorizar, qué evitar y 10 recetas completas con ingredientes y pasos.</p>
+        <div class="bento-mockup">
+          <div class="line-green">PRIORIZAR → Aguacate</div>
+          <div class="line-green">PRIORIZAR → Hojas Verdes</div>
+          <div class="line-coral">EVITAR    → Azúcar blanca</div>
+          <div class="line-coral">EVITAR    → Harinas refin.</div>
+        </div>
+      </div>
+
+      <!-- Cell 5: PWA -->
+      <div class="bento-cell">
+        <div class="bento-accent" style="background:var(--coral);"></div>
+        <span class="bento-label">05 — App</span>
+        <h3 class="bento-title">Instala en<br>tu celular</h3>
+        <p class="bento-desc">PWA — funciona offline, sin app store. Se instala directamente desde el navegador en 30 segundos.</p>
+        <div class="bento-mockup">
+          <div class="line-green">STATUS: offline_ready</div>
+          <div class="line-gold">INSTALL: one_tap</div>
+          <div style="opacity:0.5">STORE:  not_required</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════
+     7 DAYS TIMELINE
+══════════════════════ -->
+<div class="section-divider"></div>
+<section class="timeline-section">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <span class="section-eyebrow">El protocolo</span>
+        <h2 class="section-title">7 días.<br>Cada uno con propósito.</h2>
+      </div>
+    </div>
+    <div class="timeline-grid">
+      <div class="day-cell">
+        <span class="day-num">D — 01</span>
+        <div class="day-dot"></div>
+        <div class="day-name">Activar el Drenaje</div>
+        <div class="day-focus">Sistema linfático · Hidratación activa</div>
+      </div>
+      <div class="day-cell">
+        <span class="day-num">D — 02</span>
+        <div class="day-dot"></div>
+        <div class="day-name">Reset Digestivo</div>
+        <div class="day-focus">Microbiota · Probióticos · Fibra</div>
+      </div>
+      <div class="day-cell">
+        <span class="day-num">D — 03</span>
+        <div class="day-dot"></div>
+        <div class="day-name">Alimentación Real</div>
+        <div class="day-focus">Antiinflamatorios · Sin procesados</div>
+      </div>
+      <div class="day-cell">
+        <span class="day-num">D — 04</span>
+        <div class="day-dot"></div>
+        <div class="day-name">Ritmo Circadiano</div>
+        <div class="day-focus">Sueño · Horarios · Cortisol</div>
+      </div>
+      <div class="day-cell">
+        <span class="day-num">D — 05</span>
+        <div class="day-dot"></div>
+        <div class="day-name">Drenaje Profundo</div>
+        <div class="day-focus">Linfático · Movimiento fluido</div>
+      </div>
+      <div class="day-cell">
+        <span class="day-num">D — 06</span>
+        <div class="day-dot"></div>
+        <div class="day-name">Consciencia Plena</div>
+        <div class="day-focus">Mente · Intestino · Estrés</div>
+      </div>
+      <div class="day-cell">
+        <span class="day-num">D — 07</span>
+        <div class="day-dot" style="background:var(--mint);"></div>
+        <div class="day-name">Nueva Identidad</div>
+        <div class="day-focus">Integrar · Proyectar · Celebrar</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════
+     TESTIMONIALS
+══════════════════════ -->
+<div class="section-divider"></div>
+<section class="testimonials" id="testimonios">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <span class="section-eyebrow">Resultados reales</span>
+        <h2 class="section-title">Lo que dicen<br>ellas.</h2>
+      </div>
+      <span class="status-badge"><span class="status-dot gold"></span>Verificado</span>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+        </div>
+        <p class="testimonial-quote">"Al día 3 ya notaba la diferencia. La barriga que cargaba hace meses simplemente bajó. No hice dieta, solo seguí el plan día a día."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">M</div>
+          <div>
+            <div class="author-info-name">María G.</div>
+            <div class="author-info-role">México · Día 7 completado</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+        </div>
+        <p class="testimonial-quote">"Lo que más me gustó es que no me prohíbe nada. Entendí POR QUÉ me inflamaba y eso cambió todo. Ya van 3 semanas y no volvió."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">C</div>
+          <div>
+            <div class="author-info-name">Carolina R.</div>
+            <div class="author-info-role">Colombia · Semana 3</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card">
+        <div class="testimonial-stars">
+          <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+        </div>
+        <p class="testimonial-quote">"Tenía el intestino lento desde hace años. En 7 días regulé la digestión y bajé 2kg de inflamación. El app funciona offline, perfecto para el trabajo."</p>
+        <div class="testimonial-author">
+          <div class="author-avatar">A</div>
+          <div>
+            <div class="author-info-name">Andrea V.</div>
+            <div class="author-info-role">Chile · Día 7 completado</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════
+     INCLUDES + PRICE
+══════════════════════ -->
+<div class="section-divider"></div>
+<section class="includes" id="precio">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <span class="section-eyebrow">Resumen</span>
+        <h2 class="section-title">Todo lo que<br>obtienes.</h2>
+      </div>
+    </div>
+    <div class="includes-grid">
+      <ul class="includes-list">
+        <li class="includes-item">
+          <span class="includes-num">01</span>
+          <div>
+            <div class="includes-content-label" style="color:var(--coral);">Plan Principal</div>
+            <div class="includes-content-title">Plan Desinflama 7D</div>
+            <div class="includes-content-desc">7 días completos — misión diaria, nutrición, movimiento y ritual nocturno con base científica.</div>
+          </div>
+        </li>
+        <li class="includes-item">
+          <span class="includes-num">02</span>
+          <div>
+            <div class="includes-content-label" style="color:var(--mint);">Academia</div>
+            <div class="includes-content-title">15 Módulos de Educación</div>
+            <div class="includes-content-desc">Lecciones completas sobre inflamación, microbiota, estrés, hormonas y más. Acceso de por vida.</div>
+          </div>
+        </li>
+        <li class="includes-item">
+          <span class="includes-num">03</span>
+          <div>
+            <div class="includes-content-label" style="color:var(--gold);">Guía</div>
+            <div class="includes-content-title">Guía de Alimentación + 10 Recetas</div>
+            <div class="includes-content-desc">Qué comer, qué evitar y 10 recetas antiinflamatorias completas con pasos.</div>
+          </div>
+        </li>
+        <li class="includes-item">
+          <span class="includes-num">04</span>
+          <div>
+            <div class="includes-content-label" style="color:var(--coral);">Bonus VIP</div>
+            <div class="includes-content-title">Recetario Detox VIP — 50 Recetas</div>
+            <div class="includes-content-desc">Jugos, shots, caldos, tés y aguas activas del protocolo avanzado. Solo dentro del app.</div>
+          </div>
+        </li>
+        <li class="includes-item">
+          <span class="includes-num">05</span>
+          <div>
+            <div class="includes-content-label" style="color:var(--mint);">Smoothies VIP</div>
+            <div class="includes-content-title">50 Smoothies Antiinflamatorios</div>
+            <div class="includes-content-desc">4 colecciones: drenaje, energía, saciedad y quema activa. Metabolismo activo sin inflamación.</div>
+          </div>
+        </li>
+        <li class="includes-item">
+          <span class="includes-num">06</span>
+          <div>
+            <div class="includes-content-label" style="color:var(--gold);">App</div>
+            <div class="includes-content-title">App PWA — Funciona Offline</div>
+            <div class="includes-content-desc">Instala en tu celular sin app store. Todo el contenido disponible sin conexión.</div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="includes-visual">
+        <div class="includes-visual-header">
+          <span>Desinflama 7D</span>
+          <span class="status-badge" style="border-color:rgba(255,255,255,0.2);color:var(--mint);font-size:9px;padding:3px 10px;"><span class="status-dot" style="background:var(--mint);width:6px;height:6px;"></span>Disponible</span>
+        </div>
+        <div class="includes-visual-body">
+          <div class="price-display">
+            <div class="price-old">Valor regular: $37</div>
+            <div class="price-main"><sup>$</sup>17</div>
+            <div class="price-note">Pago único · Sin suscripción</div>
+          </div>
+          <a href="SEU_LINK_HOTMART_AQUI" class="btn-buy">Quiero empezar ahora →</a>
+          <div class="order-bump">
+            <span class="order-bump-label">⚡ Oferta especial — Solo hoy</span>
+            <div class="order-bump-title">+ Ayuno Intermitente: Guía Definitiva</div>
+            <div class="order-bump-desc">Guía completa del método 16:8 + 20 recetas exclusivas para tu ventana de alimentación. Potencia x3 los resultados del protocolo.</div>
+            <div class="order-bump-price">+ $7 — Agregar al pedido</div>
+          </div>
+          <div class="guarantee-box">
+            <span class="guarantee-icon">🛡️</span>
+            <span class="guarantee-text">Garantía de 7 días. Si no ves resultados, devolvemos tu dinero sin preguntas.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════
+     CTA SECTION
+══════════════════════ -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-inner">
+      <span class="cta-eyebrow">Última llamada</span>
+      <h2 class="cta-title">Tu cuerpo lleva<br>meses esperando esto.</h2>
+      <p class="cta-sub">Acceso inmediato · Sin app store · Funciona offline</p>
+      <div class="corner-box">
+        <div class="corner-tl"></div>
+        <div class="corner-br"></div>
+        <a href="SEU_LINK_HOTMART_AQUI" class="cta-btn">Empezar Desinflama 7D — $17 →</a>
+        <p class="cta-note">Pago único · Acceso de por vida · Garantía 7 días</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════
+     FAQ
+══════════════════════ -->
+<div class="section-divider"></div>
+<section class="faq-section">
+  <div class="container">
+    <div class="section-header">
+      <div>
+        <span class="section-eyebrow">Preguntas frecuentes</span>
+        <h2 class="section-title">Todo lo que<br>necesitas saber.</h2>
+      </div>
+    </div>
+    <div class="faq-grid">
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-num">01</span>¿Necesito hacer dieta estricta?</div>
+        <p class="faq-a">No. El protocolo no prohíbe ni restringe grupos de alimentos. Te guía hacia qué priorizar y qué reducir gradualmente, sin contar calorías ni pesar comida.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-num">02</span>¿Funciona en iPhone y Android?</div>
+        <p class="faq-a">Sí. Es un PWA — una app web que se instala directamente desde el navegador. No necesitas descargar nada de la App Store ni Google Play. Funciona en ambos sistemas.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-num">03</span>¿Cuándo empiezo a ver resultados?</div>
+        <p class="faq-a">La mayoría de las usuarias reportan reducción visible de la hinchazón abdominal entre el día 2 y 4. Los cambios de energía y digestión suelen notarse desde el primer día.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-num">04</span>¿Cuánto tiempo necesito por día?</div>
+        <p class="faq-a">El protocolo fue diseñado para mujeres ocupadas. Cada día tiene una misión específica que puedes completar en 5-10 minutos. El resto son hábitos que se integran a tu rutina.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-num">05</span>¿El acceso expira?</div>
+        <p class="faq-a">No. Pagas una sola vez y el acceso es de por vida. Todo el contenido queda guardado en tu dispositivo y funciona sin conexión a internet.</p>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span class="faq-q-num">06</span>¿Hay garantía de devolución?</div>
+        <p class="faq-a">Sí. Tienes 7 días completos para probar el protocolo. Si no ves ningún resultado, devolvemos el 100% de tu dinero sin preguntas y sin burocracia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════
+     FOOTER
+══════════════════════ -->
+<div class="section-divider"></div>
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <div class="footer-logo-box"></div>
+        <span class="footer-brand">Desinflama 7D</span>
+      </div>
+      <span class="footer-copy">© 2025 · Todos los derechos reservados</span>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /wrap -->
+</body>
+</html>
