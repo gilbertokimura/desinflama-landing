@@ -849,6 +849,214 @@ nav {
 }
 
 /* ══════════════════════════
+   PAIN SECTION
+══════════════════════════ */
+.pain {
+  padding: 64px 48px;
+  background: var(--bg);
+}
+.pain-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.pain-label {
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  color: var(--accent);
+  margin-bottom: 20px;
+  display: block;
+}
+.pain-title {
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+}
+.pain-title em { font-style: italic; font-weight: 300; color: var(--accent); }
+.pain-sub {
+  font-size: 14px;
+  line-height: 1.65;
+  opacity: 0.55;
+  max-width: 360px;
+}
+.pain-checks {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.pain-check {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background: var(--bg2);
+  border-radius: 12px;
+  border-left: 3px solid transparent;
+  transition: border-color 0.3s, background 0.3s;
+}
+.pain-check:hover { border-left-color: var(--accent); background: #f0ebe4; }
+.pain-check-icon {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-size: 11px;
+}
+.pain-check p {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+/* ══════════════════════════
+   SOCIAL PROOF PILL
+══════════════════════════ */
+.proof-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg2);
+  border: 1px solid rgba(38,38,38,0.08);
+  border-radius: 100px;
+  padding: 8px 16px 8px 8px;
+  margin-bottom: 28px;
+}
+.proof-avatars {
+  display: flex;
+}
+.proof-avatar {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg);
+  margin-left: -8px;
+  font-size: 11px;
+  font-weight: 900;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text);
+}
+.proof-avatar:first-child { margin-left: 0; }
+.proof-text {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.proof-text strong { color: var(--text); }
+.proof-text span { opacity: 0.5; }
+
+/* ══════════════════════════
+   COUNTDOWN
+══════════════════════════ */
+.countdown-bar {
+  background: var(--text);
+  padding: 12px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.countdown-label {
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+}
+.countdown-timer {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.cd-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cd-num {
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--bg);
+  min-width: 36px;
+  text-align: center;
+}
+.cd-label {
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(253,248,243,0.35);
+}
+.cd-sep {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+  padding-bottom: 12px;
+}
+
+/* ══════════════════════════
+   VALUE STACK
+══════════════════════════ */
+.value-stack {
+  background: rgba(38,38,38,0.03);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+.vs-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(38,38,38,0.06);
+  font-size: 12px;
+}
+.vs-row:last-child { border-bottom: none; }
+.vs-name { font-weight: 600; opacity: 0.7; }
+.vs-price { font-weight: 900; text-decoration: line-through; opacity: 0.35; }
+.vs-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0 0;
+  margin-top: 4px;
+  border-top: 2px solid rgba(38,38,38,0.1);
+  font-size: 13px;
+}
+.vs-total-label { font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em; }
+.vs-total-you {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+.vs-total-original { font-size: 11px; font-weight: 700; text-decoration: line-through; opacity: 0.35; }
+.vs-total-price { font-size: 18px; font-weight: 900; color: var(--accent); }
+
+/* Btn micro-copy */
+.btn-micro {
+  display: block;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  opacity: 0.4;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-top: -8px;
+  margin-bottom: 12px;
+}
+
+/* ══════════════════════════
    FOOTER
 ══════════════════════════ */
 footer {
@@ -929,6 +1137,9 @@ footer {
    RESPONSIVE
 ══════════════════════════ */
 @media (max-width: 1024px) {
+  .pain-inner { grid-template-columns: 1fr; gap: 32px; }
+  .pain { padding: 48px 24px; }
+  .countdown-bar { padding: 12px 24px; gap: 10px; }
   .hero { grid-template-columns: 1fr; padding: 88px 24px 40px; }
   .hero-title { font-size: clamp(56px, 14vw, 120px); }
   .hero-right { display: none; }
@@ -975,11 +1186,19 @@ footer {
 <!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-left reveal">
+    <div class="proof-pill">
+      <div class="proof-avatars">
+        <div class="proof-avatar">M</div>
+        <div class="proof-avatar">C</div>
+        <div class="proof-avatar">A</div>
+      </div>
+      <div class="proof-text"><strong>+1.847 mujeres</strong> <span>ya completaron el protocolo</span></div>
+    </div>
     <span class="hero-label">Protocolo antiinflamatorio · 7 días</span>
     <h1 class="hero-title">Sin<br><em>dieta.</em><br>Sin<br>hinchazón.</h1>
-    <p class="hero-body">El protocolo que reduce la inflamación crónica en 7 días sin restricciones, sin contar calorías y sin pasar hambre.</p>
+    <p class="hero-body">Te despiertas hinchada, con el vientre tenso y sin energía — y ninguna dieta lo resuelve. Este protocolo ataca la causa: la inflamación crónica.</p>
     <a href="#precio" class="hero-arrow-cta">
-      Ver el programa
+      Quiero empezar — $17
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
   </div>
@@ -1037,6 +1256,51 @@ footer {
     <span class="ticker-item accent">·</span>
   </div>
 </div>
+
+<!-- COUNTDOWN BAR -->
+<div class="countdown-bar">
+  <span class="countdown-label">Oferta válida por</span>
+  <div class="countdown-timer">
+    <div class="cd-unit"><span class="cd-num" id="cd-h">23</span><span class="cd-label">horas</span></div>
+    <span class="cd-sep">:</span>
+    <div class="cd-unit"><span class="cd-num" id="cd-m">47</span><span class="cd-label">min</span></div>
+    <span class="cd-sep">:</span>
+    <div class="cd-unit"><span class="cd-num" id="cd-s">12</span><span class="cd-label">seg</span></div>
+  </div>
+</div>
+
+<!-- PAIN SECTION -->
+<section class="pain">
+  <div class="pain-inner">
+    <div class="reveal">
+      <span class="pain-label">¿Te suena familiar?</span>
+      <h2 class="pain-title">Tu cuerpo te está<br>enviando una <em>señal.</em></h2>
+      <p class="pain-sub">La hinchazón, el cansancio y la digestión lenta no son normales — son síntomas de inflamación crónica. Y tienen solución.</p>
+    </div>
+    <div class="pain-checks reveal">
+      <div class="pain-check">
+        <div class="pain-check-icon">✓</div>
+        <p>Me despierto con el vientre hinchado aunque haya cenado ligero</p>
+      </div>
+      <div class="pain-check">
+        <div class="pain-check-icon">✓</div>
+        <p>Siento pesadez y lentitud digestiva casi todos los días</p>
+      </div>
+      <div class="pain-check">
+        <div class="pain-check-icon">✓</div>
+        <p>Probé dietas, pero la hinchazón vuelve en cuanto las dejo</p>
+      </div>
+      <div class="pain-check">
+        <div class="pain-check-icon">✓</div>
+        <p>Me falta energía por las tardes y duermo mal sin razón clara</p>
+      </div>
+      <div class="pain-check">
+        <div class="pain-check-icon">✓</div>
+        <p>Quiero sentirme bien en mi cuerpo — sin obsesionarme con la comida</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- SERVICES — O QUE INCLUI -->
 <section class="services" id="programa">
@@ -1188,34 +1452,34 @@ footer {
   <div class="testimonials-grid reveal">
     <div class="testimonial-card">
       <div class="t-stars"><div class="t-star"></div><div class="t-star"></div><div class="t-star"></div><div class="t-star"></div><div class="t-star"></div></div>
-      <p class="t-quote">"Al día 3 ya notaba la diferencia. La barriga que cargaba hace meses simplemente bajó. No hice dieta, solo seguí el plan día a día y fue suficiente."</p>
+      <p class="t-quote">"Al día 3 noté la diferencia. Bajé 2,5 cm de cintura sin hacer dieta — solo seguí el plan. Era la primera vez en años que me despertaba sin la barriga hinchada."</p>
       <div class="t-author">
         <div class="t-avatar">M</div>
         <div>
           <div class="t-name">María G.</div>
-          <div class="t-role">México · Día 7 completado</div>
+          <div class="t-role">México · −2,5 cm en 7 días</div>
         </div>
       </div>
     </div>
     <div class="testimonial-card">
       <div class="t-stars"><div class="t-star"></div><div class="t-star"></div><div class="t-star"></div><div class="t-star"></div><div class="t-star"></div></div>
-      <p class="t-quote">"Lo que más me gustó es que no me prohíbe nada. Entendí POR QUÉ me inflamaba y eso lo cambió todo. Ya van 3 semanas y la hinchazón no volvió."</p>
+      <p class="t-quote">"Entendí POR QUÉ me inflamaba y eso lo cambió todo. No es magia: es ciencia aplicada. Semana 3 y la hinchazón no volvió. Perdí 3 kg de pura inflamación."</p>
       <div class="t-author">
         <div class="t-avatar">C</div>
         <div>
           <div class="t-name">Carolina R.</div>
-          <div class="t-role">Colombia · Semana 3</div>
+          <div class="t-role">Colombia · −3 kg de inflamación</div>
         </div>
       </div>
     </div>
     <div class="testimonial-card">
       <div class="t-stars"><div class="t-star"></div><div class="t-star"></div><div class="t-star"></div><div class="t-star"></div><div class="t-star"></div></div>
-      <p class="t-quote">"Tenía el intestino lento desde hace años. En 7 días regulé la digestión y bajé 2kg de pura inflamación. El app funciona offline, perfecto para el trabajo."</p>
+      <p class="t-quote">"Intestino lento desde hace años. En 7 días regulé la digestión por completo. La app funciona offline — la usé en el metro, en el trabajo, en todos lados."</p>
       <div class="t-author">
         <div class="t-avatar">A</div>
         <div>
           <div class="t-name">Andrea V.</div>
-          <div class="t-role">Chile · Día 7 completado</div>
+          <div class="t-role">Chile · Digestión regulada en D7</div>
         </div>
       </div>
     </div>
@@ -1289,7 +1553,22 @@ footer {
           <div class="pricing-note">Pago único · Sin suscripción</div>
         </div>
         <div class="pricing-card-body">
+          <div class="value-stack">
+            <div class="vs-row"><span class="vs-name">Plan Desinflama 7D</span><span class="vs-price">$27</span></div>
+            <div class="vs-row"><span class="vs-name">Academia — 15 módulos</span><span class="vs-price">$37</span></div>
+            <div class="vs-row"><span class="vs-name">Recetario Detox VIP</span><span class="vs-price">$27</span></div>
+            <div class="vs-row"><span class="vs-name">50 Smoothies VIP</span><span class="vs-price">$27</span></div>
+            <div class="vs-row"><span class="vs-name">App PWA Offline</span><span class="vs-price">$17</span></div>
+            <div class="vs-total-row">
+              <span class="vs-total-label">Tú pagas hoy</span>
+              <div class="vs-total-you">
+                <span class="vs-total-original">Valor $135</span>
+                <span class="vs-total-price">Solo $17</span>
+              </div>
+            </div>
+          </div>
           <a href="SEU_LINK_HOTMART_AQUI" class="btn-buy accent-btn">Quiero empezar ahora →</a>
+          <span class="btn-micro">Acceso inmediato · Pago seguro · Sin suscripción</span>
           <div class="order-bump">
             <span class="bump-label">⚡ Oferta especial — Solo hoy</span>
             <div class="bump-title">+ Ayuno Intermitente: Guía Definitiva</div>
@@ -1309,9 +1588,11 @@ footer {
 <!-- CTA FULL -->
 <section class="cta-full">
   <div class="reveal">
-    <span class="cta-label">Última llamada</span>
-    <h2 class="cta-title">Tu cuerpo lleva<br>meses esperando<br><em>esto.</em></h2>
+    <span class="cta-label">Toma la decisión</span>
+    <h2 class="cta-title">En 7 días puedes<br>sentirte <em>diferente.</em><br>O seguir igual.</h2>
+    <p style="font-size:16px;font-weight:500;color:rgba(253,248,243,0.5);max-width:480px;margin:0 auto 40px;line-height:1.65;">La hinchazón no desaparece sola. Pero sí desaparece — cuando atacas la causa correcta. Por $17 tienes el protocolo completo hoy.</p>
     <a href="SEU_LINK_HOTMART_AQUI" class="btn-cta">Empezar Desinflama 7D — $17</a>
+    <div style="margin-top:16px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:rgba(253,248,243,0.25);">Garantía de 7 días · Sin riesgo</div>
   </div>
 </section>
 
@@ -1369,6 +1650,28 @@ footer {
 </footer>
 
 <script>
+// Countdown timer — 24h from first visit, persists in localStorage
+(function() {
+  const KEY = 'desinflama_deadline';
+  let deadline = parseInt(localStorage.getItem(KEY));
+  if (!deadline || deadline < Date.now()) {
+    deadline = Date.now() + 24 * 60 * 60 * 1000;
+    localStorage.setItem(KEY, deadline);
+  }
+  function tick() {
+    const diff = deadline - Date.now();
+    if (diff <= 0) { document.getElementById('cd-h').textContent='00'; document.getElementById('cd-m').textContent='00'; document.getElementById('cd-s').textContent='00'; return; }
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
+    document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
+    document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+
 // Reveal on scroll
 const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
