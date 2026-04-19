@@ -1,0 +1,1831 @@
+<!DOCTYPE html>
+<!-- saved from url=(0062)file:///C:/Users/gilbe/Downloads/intestino-libre-lp-utm_1.html -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intestino Libre — 7 días. Sin hinchazón.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com/">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+<link href="./Intestino Libre — 7 días. Sin hinchazón._files/css2" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:      #fdf8f3;
+  --bg2:     #f5f0eb;
+  --text:    #262626;
+  --accent:  #e4a4bd;
+  --ease:    cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'League Spartan', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ── REVEAL UP ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 1s var(--ease);
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── BOUNCE ── */
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(-5%); }
+  50%       { transform: translateY(5%); }
+}
+
+/* ══════════════════════════
+   NAVIGATION
+══════════════════════════ */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  background: rgba(253,248,243,0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(38,38,38,0.05);
+  padding: 0 48px;
+}
+.nav-inner {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-brand {
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text);
+  text-decoration: none;
+}
+.nav-links {
+  display: flex;
+  gap: 40px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text);
+  text-decoration: none;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+.nav-links a:hover { opacity: 1; }
+.nav-cta {
+  background: var(--accent);
+  color: var(--text);
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  padding: 12px 32px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: opacity 0.3s var(--ease);
+}
+.nav-cta:hover { opacity: 0.8; }
+
+/* ══════════════════════════
+   HERO
+══════════════════════════ */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  padding: 0 48px;
+  padding-top: 80px;
+  gap: 48px;
+}
+.hero-left { padding: 24px 0; }
+.hero-label {
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  color: var(--accent);
+  margin-bottom: 24px;
+  display: block;
+}
+.hero-title {
+  font-size: 15vw;
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  color: var(--text);
+  margin-bottom: 32px;
+}
+.hero-title em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--accent);
+}
+.hero-body {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+  color: rgba(38,38,38,0.7);
+  max-width: 420px;
+  margin-bottom: 40px;
+}
+.hero-arrow-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--text);
+  text-decoration: none;
+  padding-bottom: 6px;
+  border-bottom: 2px solid var(--accent);
+  transition: gap 0.4s var(--ease);
+}
+.hero-arrow-cta:hover { gap: 20px; }
+.hero-arrow-cta svg { width: 20px; height: 20px; }
+
+.hero-right {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-card {
+  width: 100%;
+  aspect-ratio: 3/4;
+  border-radius: 24px;
+  background: var(--bg2);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hero-card-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 32px;
+  text-align: center;
+}
+.hero-card-num {
+  font-size: 120px;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--text);
+  opacity: 0.06;
+  position: absolute;
+  top: 20px;
+  right: 24px;
+}
+.hero-card-emoji { font-size: 72px; filter: grayscale(100%); transition: filter 0.6s var(--ease); }
+.hero-card:hover .hero-card-emoji { filter: grayscale(0%); }
+.hero-card-title {
+  font-size: 36px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+.hero-card-sub {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  opacity: 0.4;
+}
+.hero-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 8px;
+}
+.hero-card-tag {
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  border: 1px solid rgba(38,38,38,0.15);
+  padding: 6px 14px;
+  border-radius: 100px;
+}
+
+/* Floating badge */
+.float-badge {
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  animation: bounce-slow 4s ease-in-out infinite;
+  z-index: 2;
+}
+.float-badge-num {
+  font-size: 36px;
+  font-style: italic;
+  font-weight: 300;
+  color: var(--text);
+  line-height: 1;
+}
+.float-badge-label {
+  font-size: 8px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--text);
+  text-align: center;
+  padding: 0 16px;
+  opacity: 0.7;
+}
+
+/* ══════════════════════════
+   TICKER
+══════════════════════════ */
+.ticker {
+  background: var(--text);
+  padding: 16px 0;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.ticker-track {
+  display: inline-flex;
+  gap: 0;
+  animation: ticker 20s linear infinite;
+}
+.ticker-item {
+  font-size: 11px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--bg);
+  padding: 0 40px;
+  opacity: 0.6;
+}
+.ticker-item.accent { color: var(--accent); opacity: 1; }
+@keyframes ticker {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* ══════════════════════════
+   SERVICES GRID
+══════════════════════════ */
+.services {
+  background: var(--bg2);
+  padding: 64px 48px;
+}
+.services-headline {
+  font-size: clamp(36px, 6vw, 72px);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  margin-bottom: 40px;
+  max-width: 700px;
+}
+.services-headline em {
+  font-style: italic;
+  font-weight: 300;
+  color: var(--accent);
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid rgba(38,38,38,0.1);
+}
+.service-card {
+  padding: 40px;
+  border-right: 1px solid rgba(38,38,38,0.1);
+  background: var(--bg);
+  transition: background 0.4s var(--ease);
+  cursor: default;
+}
+.service-card:last-child { border-right: none; }
+.service-card:hover { background: var(--accent); }
+.service-icon {
+  font-size: 40px;
+  margin-bottom: 24px;
+  display: block;
+  filter: grayscale(100%);
+  transition: filter 0.4s var(--ease), transform 0.4s var(--ease);
+}
+.service-card:hover .service-icon { filter: grayscale(0%); transform: scale(1.1); }
+.service-card h3 {
+  font-size: 16px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+  transition: color 0.3s;
+}
+.service-card:hover h3 { color: var(--text); }
+.service-card p {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.7;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+.service-card:hover p { opacity: 0.8; }
+
+/* ══════════════════════════
+   PORTFOLIO / 7 DAYS
+══════════════════════════ */
+.portfolio {
+  padding: 64px 48px;
+}
+.portfolio-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+.portfolio-title {
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+}
+.portfolio-title em { font-style: italic; font-weight: 300; color: var(--accent); }
+.portfolio-count {
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  opacity: 0.4;
+}
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.portfolio-item { }
+.portfolio-item:nth-child(even) { margin-top: 48px; }
+.portfolio-img {
+  aspect-ratio: 3/4;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  background: var(--bg2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.portfolio-img-inner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  padding: 32px;
+  text-align: center;
+  filter: grayscale(100%);
+  transition: filter 0.6s var(--ease), transform 0.6s var(--ease);
+}
+.portfolio-item:hover .portfolio-img-inner {
+  filter: grayscale(0%);
+  transform: scale(1.03);
+}
+.portfolio-img-emoji { font-size: 56px; }
+.portfolio-img-title {
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+.portfolio-img-focus {
+  font-size: 11px;
+  font-weight: 700;
+  opacity: 0.5;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+.portfolio-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.4s var(--ease);
+  border-radius: 16px;
+}
+.portfolio-item:hover .portfolio-overlay { background: rgba(0,0,0,0.08); }
+.portfolio-overlay-btn {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: var(--text);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.4s var(--ease);
+  flex-direction: column;
+  gap: 2px;
+}
+.portfolio-item:hover .portfolio-overlay-btn { opacity: 1; transform: scale(1); }
+.portfolio-overlay-btn span {
+  font-size: 9px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: white;
+  text-align: center;
+  padding: 0 12px;
+  line-height: 1.4;
+}
+.portfolio-meta { padding: 20px 4px 0; }
+.portfolio-cat {
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  color: var(--accent);
+  margin-bottom: 6px;
+  display: block;
+}
+.portfolio-name {
+  font-size: clamp(20px, 3vw, 28px);
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+.portfolio-tags {
+  font-size: 11px;
+  font-weight: 700;
+  opacity: 0.4;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ══════════════════════════
+   TESTIMONIALS
+══════════════════════════ */
+.testimonials {
+  background: var(--bg2);
+  padding: 64px 48px;
+}
+.testimonials-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+.testimonials-title {
+  font-size: clamp(40px, 6vw, 72px);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+}
+.testimonials-title em { font-style: italic; font-weight: 300; color: var(--accent); }
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+.testimonial-card {
+  background: var(--bg);
+  border-radius: 16px;
+  padding: 36px;
+}
+.t-stars {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 24px;
+}
+.t-star {
+  width: 12px; height: 12px;
+  background: var(--accent);
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+.t-quote {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.65;
+  color: rgba(38,38,38,0.75);
+  margin-bottom: 28px;
+}
+.t-author {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-top: 24px;
+  border-top: 1px solid rgba(38,38,38,0.08);
+}
+.t-avatar {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px;
+  font-weight: 900;
+  color: var(--text);
+  flex-shrink: 0;
+}
+.t-name {
+  font-size: 12px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.t-role {
+  font-size: 10px;
+  font-weight: 700;
+  opacity: 0.4;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 2px;
+}
+
+/* ══════════════════════════
+   PRICING
+══════════════════════════ */
+.pricing {
+  padding: 64px 48px;
+}
+.pricing-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.pricing-left-label {
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  color: var(--accent);
+  margin-bottom: 20px;
+  display: block;
+}
+.pricing-title {
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  margin-bottom: 32px;
+}
+.pricing-title em { font-style: italic; font-weight: 300; color: var(--accent); }
+.pricing-includes { list-style: none; }
+.pricing-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 18px 0;
+  border-bottom: 1px solid rgba(38,38,38,0.07);
+}
+.pricing-item:first-child { border-top: 1px solid rgba(38,38,38,0.07); }
+.pricing-dot {
+  width: 8px; height: 8px;
+  background: var(--accent);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+.pricing-item-label {
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  margin-bottom: 3px;
+}
+.pricing-item-title {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+.pricing-item-desc {
+  font-size: 12px;
+  opacity: 0.5;
+  line-height: 1.5;
+  margin-top: 2px;
+}
+
+/* Pricing card */
+.pricing-card {
+  background: var(--bg2);
+  border-radius: 24px;
+  overflow: hidden;
+  position: sticky;
+  top: 100px;
+}
+.pricing-card-header {
+  background: var(--text);
+  padding: 32px;
+  text-align: center;
+}
+.pricing-card-label {
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+  margin-bottom: 16px;
+  display: block;
+}
+.pricing-old {
+  font-size: 14px;
+  font-weight: 700;
+  text-decoration: line-through;
+  color: rgba(253,248,243,0.3);
+  margin-bottom: 4px;
+}
+.pricing-price {
+  font-size: 80px;
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--bg);
+}
+.pricing-price sup { font-size: 32px; vertical-align: super; }
+.pricing-note {
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: rgba(253,248,243,0.35);
+  margin-top: 10px;
+}
+.pricing-card-body { padding: 32px; }
+.btn-buy {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  background: var(--text);
+  color: var(--bg);
+  padding: 20px 32px;
+  border-radius: 100px;
+  text-decoration: none;
+  margin-bottom: 14px;
+  transition: opacity 0.3s var(--ease);
+}
+.btn-buy:hover { opacity: 0.8; }
+.btn-buy.accent-btn {
+  background: var(--accent);
+  color: var(--text);
+}
+.order-bump {
+  border: 1px solid rgba(38,38,38,0.1);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 14px;
+}
+.bump-label {
+  font-size: 9px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+  margin-bottom: 8px;
+  display: block;
+}
+.bump-title {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+.bump-desc {
+  font-size: 11px;
+  opacity: 0.5;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+.bump-price {
+  font-size: 12px;
+  font-weight: 900;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+.guarantee {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 16px;
+  background: rgba(38,38,38,0.03);
+  border-radius: 12px;
+}
+.guarantee-text {
+  font-size: 11px;
+  font-weight: 600;
+  opacity: 0.5;
+  line-height: 1.5;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ══════════════════════════
+   CTA FULL
+══════════════════════════ */
+.cta-full {
+  background: var(--text);
+  padding: 64px 48px;
+  text-align: center;
+}
+.cta-label {
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  color: var(--accent);
+  margin-bottom: 24px;
+  display: block;
+}
+.cta-title {
+  font-size: clamp(40px, 7vw, 96px);
+  font-weight: 900;
+  line-height: 0.88;
+  letter-spacing: -0.03em;
+  color: var(--bg);
+  margin-bottom: 48px;
+}
+.cta-title em { font-style: italic; font-weight: 300; color: var(--accent); }
+.btn-cta {
+  display: inline-block;
+  background: var(--accent);
+  color: var(--text);
+  font-size: 13px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  padding: 20px 56px;
+  border-radius: 100px;
+  text-decoration: none;
+  transition: opacity 0.3s var(--ease);
+}
+.btn-cta:hover { opacity: 0.85; }
+
+/* ══════════════════════════
+   FAQ
+══════════════════════════ */
+.faq {
+  padding: 64px 48px;
+  background: var(--bg2);
+}
+.faq-header { margin-bottom: 36px; }
+.faq-title {
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+}
+.faq-title em { font-style: italic; font-weight: 300; color: var(--accent); }
+.faq-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid rgba(38,38,38,0.08);
+}
+.faq-item {
+  padding: 32px 36px;
+  border-right: 1px solid rgba(38,38,38,0.08);
+  border-bottom: 1px solid rgba(38,38,38,0.08);
+  background: var(--bg);
+}
+.faq-item:nth-child(even) { border-right: none; }
+.faq-item:nth-last-child(-n+2) { border-bottom: none; }
+.faq-num {
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+  margin-bottom: 12px;
+  display: block;
+}
+.faq-q {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+}
+.faq-a {
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.7;
+  opacity: 0.55;
+}
+
+/* ══════════════════════════
+   PAIN SECTION
+══════════════════════════ */
+.pain {
+  padding: 64px 48px;
+  background: var(--bg);
+}
+.pain-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.pain-label {
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  color: var(--accent);
+  margin-bottom: 20px;
+  display: block;
+}
+.pain-title {
+  font-size: clamp(32px, 4vw, 52px);
+  font-weight: 900;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin-bottom: 16px;
+}
+.pain-title em { font-style: italic; font-weight: 300; color: var(--accent); }
+.pain-sub {
+  font-size: 14px;
+  line-height: 1.65;
+  opacity: 0.55;
+  max-width: 360px;
+}
+.pain-checks {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.pain-check {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background: var(--bg2);
+  border-radius: 12px;
+  border-left: 3px solid transparent;
+  transition: border-color 0.3s, background 0.3s;
+}
+.pain-check:hover { border-left-color: var(--accent); background: #f0ebe4; }
+.pain-check-icon {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: var(--accent);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  font-size: 11px;
+}
+.pain-check p {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+
+/* ══════════════════════════
+   SOCIAL PROOF PILL
+══════════════════════════ */
+.proof-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--bg2);
+  border: 1px solid rgba(38,38,38,0.08);
+  border-radius: 100px;
+  padding: 8px 16px 8px 8px;
+  margin-bottom: 28px;
+}
+.proof-avatars {
+  display: flex;
+}
+.proof-avatar {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg);
+  margin-left: -8px;
+  font-size: 11px;
+  font-weight: 900;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--text);
+}
+.proof-avatar:first-child { margin-left: 0; }
+.proof-text {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.proof-text strong { color: var(--text); }
+.proof-text span { opacity: 0.5; }
+
+/* ══════════════════════════
+   COUNTDOWN
+══════════════════════════ */
+.countdown-bar {
+  background: var(--text);
+  padding: 12px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+.countdown-label {
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--accent);
+}
+.countdown-timer {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.cd-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.cd-num {
+  font-size: 22px;
+  font-weight: 900;
+  line-height: 1;
+  color: var(--bg);
+  min-width: 36px;
+  text-align: center;
+}
+.cd-label {
+  font-size: 8px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(253,248,243,0.35);
+}
+.cd-sep {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--accent);
+  line-height: 1;
+  padding-bottom: 12px;
+}
+
+/* ══════════════════════════
+   VALUE STACK
+══════════════════════════ */
+.value-stack {
+  background: rgba(38,38,38,0.03);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+.vs-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(38,38,38,0.06);
+  font-size: 12px;
+}
+.vs-row:last-child { border-bottom: none; }
+.vs-name { font-weight: 600; opacity: 0.7; }
+.vs-price { font-weight: 900; text-decoration: line-through; opacity: 0.35; }
+.vs-total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0 0;
+  margin-top: 4px;
+  border-top: 2px solid rgba(38,38,38,0.1);
+  font-size: 13px;
+}
+.vs-total-label { font-weight: 900; text-transform: uppercase; letter-spacing: 0.05em; }
+.vs-total-you {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+}
+.vs-total-original { font-size: 11px; font-weight: 700; text-decoration: line-through; opacity: 0.35; }
+.vs-total-price { font-size: 18px; font-weight: 900; color: var(--accent); }
+
+/* Btn micro-copy */
+.btn-micro {
+  display: block;
+  text-align: center;
+  font-size: 10px;
+  font-weight: 700;
+  opacity: 0.4;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-top: -8px;
+  margin-bottom: 12px;
+}
+
+/* ══════════════════════════
+   FOOTER
+══════════════════════════ */
+footer {
+  background: var(--bg2);
+  padding: 80px 48px 32px;
+  border-top: 1px solid rgba(38,38,38,0.08);
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 80px;
+  padding-bottom: 64px;
+  border-bottom: 1px solid rgba(38,38,38,0.08);
+  margin-bottom: 24px;
+}
+.footer-brand {
+  font-size: 28px;
+  font-weight: 900;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+.footer-mission {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.7;
+  opacity: 0.5;
+  max-width: 320px;
+}
+.footer-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+}
+.footer-col-title {
+  font-size: 10px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.4em;
+  color: var(--accent);
+  margin-bottom: 20px;
+  display: block;
+  position: relative;
+  padding-bottom: 8px;
+}
+.footer-col-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 24px;
+  height: 1px;
+  background: var(--accent);
+}
+.footer-links { list-style: none; }
+.footer-links li {
+  font-size: 13px;
+  font-weight: 500;
+  opacity: 0.5;
+  margin-bottom: 10px;
+  cursor: default;
+  transition: opacity 0.2s;
+}
+.footer-links li:hover { opacity: 1; }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-copy {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: rgba(38,38,38,0.3);
+}
+
+/* ══════════════════════════
+   RESPONSIVE
+══════════════════════════ */
+@media (max-width: 1024px) {
+  .pain-inner { grid-template-columns: 1fr; gap: 32px; }
+  .pain { padding: 48px 24px; }
+  .countdown-bar { padding: 12px 24px; gap: 10px; }
+  .hero { grid-template-columns: 1fr; padding: 88px 24px 40px; }
+  .hero-title { font-size: clamp(56px, 14vw, 120px); }
+  .hero-right { display: none; }
+  .hero-mobile-proof {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 8px;
+  }
+  .hero-mobile-proof-pill {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    border: 1px solid rgba(38,38,38,0.15);
+    padding: 6px 14px;
+    border-radius: 100px;
+    opacity: 0.6;
+  }
+  .services { padding: 48px 24px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .service-card { border-right: none; border-bottom: 1px solid rgba(38,38,38,0.1); }
+  .portfolio { padding: 48px 24px; }
+  .portfolio-grid { grid-template-columns: 1fr; }
+  .portfolio-item:nth-child(even) { margin-top: 0; }
+  .testimonials { padding: 48px 24px; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .pricing { padding: 48px 24px; }
+  .pricing-inner { grid-template-columns: 1fr; }
+  .pricing-card { position: static; }
+  .cta-full { padding: 48px 24px; }
+  .faq { padding: 48px 24px; }
+  .faq-grid { grid-template-columns: 1fr; }
+  .faq-item { border-right: none; }
+  .faq-item:nth-last-child(-n+2) { border-bottom: 1px solid rgba(38,38,38,0.08); }
+  .faq-item:last-child { border-bottom: none; }
+  footer { padding: 40px 24px 24px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+  nav { padding: 0 24px; }
+  .nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="file:///C:/Users/gilbe/Downloads/intestino-libre-lp-utm_1.html#" class="nav-brand">Intestino Libre</a>
+    <ul class="nav-links">
+      <li><a href="file:///C:/Users/gilbe/Downloads/intestino-libre-lp-utm_1.html#programa">Programa</a></li>
+      <li><a href="file:///C:/Users/gilbe/Downloads/intestino-libre-lp-utm_1.html#dias">7 Días</a></li>
+      <li><a href="file:///C:/Users/gilbe/Downloads/intestino-libre-lp-utm_1.html#testimonios">Resultados</a></li>
+      <li><a href="file:///C:/Users/gilbe/Downloads/intestino-libre-lp-utm_1.html#precio">Precio</a></li>
+    </ul>
+    <a href="file:///C:/Users/gilbe/Downloads/intestino-libre-lp-utm_1.html#precio" class="nav-cta">Empezar — $17</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-left reveal visible">
+    <div class="proof-pill">
+      <div class="proof-avatars">
+        <div class="proof-avatar">M</div>
+        <div class="proof-avatar">C</div>
+        <div class="proof-avatar">A</div>
+      </div>
+      <div class="proof-text" id="proof-text"><strong>+1.847 mujeres</strong> <span>ya completaron el protocolo</span></div>
+    </div>
+    <span class="hero-label" id="hero-label">Protocolo antiinflamatorio · 7 días</span>
+    <h1 class="hero-title" id="hero-title">Sin<br><em>dieta.</em><br>Sin<br>hinchazón.</h1>
+    <p class="hero-body" id="hero-body">Te despiertas hinchada, con el vientre tenso y sin energía — y ninguna dieta lo resuelve. Este protocolo ataca la causa: la inflamación crónica.</p>
+    <a href="file:///C:/Users/gilbe/Downloads/intestino-libre-lp-utm_1.html#precio" class="hero-arrow-cta">
+      <span id="hero-cta-text">Quiero empezar — $17</span>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
+    </a>
+    <div class="hero-mobile-proof" style="display:none" id="mobile-proof">
+      <span class="hero-mobile-proof-pill">7 días</span>
+      <span class="hero-mobile-proof-pill">Sin dieta</span>
+      <span class="hero-mobile-proof-pill">Resultados en 48h</span>
+      <span class="hero-mobile-proof-pill">+1.847 mujeres</span>
+    </div>
+  </div>
+  <div class="hero-right reveal visible">
+    <div class="hero-card">
+      <div class="float-badge">
+        <span class="float-badge-num">7</span>
+        <span class="float-badge-label">días de protocolo</span>
+      </div>
+      <div class="hero-card-inner">
+        <div class="hero-card-num">7</div>
+        <div class="hero-card-emoji">🌿</div>
+        <div class="hero-card-title">Intestino<br>Libre</div>
+        <div class="hero-card-sub">Protocolo Completo</div>
+        <div class="hero-card-tags">
+          <span class="hero-card-tag">Plan día a día</span>
+          <span class="hero-card-tag">15 módulos</span>
+          <span class="hero-card-tag">10 recetas base</span>
+          <span class="hero-card-tag">App offline</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="ticker-item accent">Intestino Libre</span>
+    <span class="ticker-item">Sin dieta restrictiva</span>
+    <span class="ticker-item accent">·</span>
+    <span class="ticker-item">Resultados en 48h</span>
+    <span class="ticker-item accent">·</span>
+    <span class="ticker-item">App offline</span>
+    <span class="ticker-item accent">·</span>
+    <span class="ticker-item">10 recetas + PDFs VIP</span>
+    <span class="ticker-item accent">·</span>
+    <span class="ticker-item">15 módulos de ciencia</span>
+    <span class="ticker-item accent">·</span>
+    <span class="ticker-item">Pago único</span>
+    <span class="ticker-item accent">·</span>
+    <!-- duplicate for seamless loop -->
+    <span class="ticker-item accent">Intestino Libre</span>
+    <span class="ticker-item">Sin dieta restrictiva</span>
+    <span class="ticker-item accent">·</span>
+    <span class="ticker-item">Resultados en 48h</span>
+    <span class="ticker-item accent">·</span>
+    <span class="ticker-item">App offline</span>
+    <span class="ticker-item accent">·</span>
+    <span class="ticker-item">10 recetas + PDFs VIP</span>
+    <span class="ticker-item accent">·</span>
+    <span class="ticker-item">15 módulos de ciencia</span>
+    <span class="ticker-item accent">·</span>
+    <span class="ticker-item">Pago único</span>
+    <span class="ticker-item accent">·</span>
+  </div>
+</div>
+
+<!-- COUNTDOWN BAR -->
+<div class="countdown-bar">
+  <span class="countdown-label">Oferta válida por</span>
+  <div class="countdown-timer">
+    <div class="cd-unit"><span class="cd-num" id="cd-h">23</span><span class="cd-label">horas</span></div>
+    <span class="cd-sep">:</span>
+    <div class="cd-unit"><span class="cd-num" id="cd-m">45</span><span class="cd-label">min</span></div>
+    <span class="cd-sep">:</span>
+    <div class="cd-unit"><span class="cd-num" id="cd-s">20</span><span class="cd-label">seg</span></div>
+  </div>
+</div>
+
+<!-- PAIN SECTION -->
+<section class="pain">
+  <div class="pain-inner">
+    <div class="reveal">
+      <span class="pain-label">¿Te suena familiar?</span>
+      <h2 class="pain-title" id="pain-title">Tu cuerpo te está<br>enviando una <em>señal.</em></h2>
+      <p class="pain-sub" id="pain-sub">La hinchazón, el cansancio y la digestión lenta no son normales — son síntomas de inflamación crónica. Y tienen solución.</p>
+    </div>
+    <div class="pain-checks reveal">
+      <div class="pain-check">
+        <div class="pain-check-icon">✓</div>
+        <p>Me despierto con el vientre hinchado aunque haya cenado ligero</p>
+      </div>
+      <div class="pain-check">
+        <div class="pain-check-icon">✓</div>
+        <p>Siento pesadez y lentitud digestiva casi todos los días</p>
+      </div>
+      <div class="pain-check">
+        <div class="pain-check-icon">✓</div>
+        <p>Probé dietas, pero la hinchazón vuelve en cuanto las dejo</p>
+      </div>
+      <div class="pain-check">
+        <div class="pain-check-icon">✓</div>
+        <p>Me falta energía por las tardes y duermo mal sin razón clara</p>
+      </div>
+      <div class="pain-check">
+        <div class="pain-check-icon">✓</div>
+        <p>Quiero sentirme bien en mi cuerpo — sin obsesionarme con la comida</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES — O QUE INCLUI -->
+<section class="services" id="programa">
+  <h2 class="services-headline reveal">Todo lo que<br>necesitas.<br><em>Nada más.</em></h2>
+  <div class="services-grid reveal">
+    <div class="service-card">
+      <span class="service-icon">📅</span>
+      <h3>Plan 7 Días</h3>
+      <p>Cada día tiene una misión clara: nutrición, movimiento y ritual nocturno. Nunca te preguntas qué hacer. Solo sigues el plan.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🎓</span>
+      <h3>Academia Completa</h3>
+      <p>15 módulos que explican la ciencia detrás del protocolo. Entiendes por qué funciona — y eso hace que lo mantengas para siempre.</p>
+    </div>
+    <div class="service-card">
+      <span class="service-icon">🧃</span>
+      <h3>10 Recetas + PDFs VIP</h3>
+      <p>10 recetas antiinflamatorias completas en el app. Los upsells incluyen guías PDF descargables: Recetario con 50 recetas y 50 Smoothies.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO — 7 DAYS -->
+<section class="portfolio" id="dias">
+  <div class="portfolio-header reveal">
+    <h2 class="portfolio-title">Los <em>7 días</em><br>del protocolo.</h2>
+    <span class="portfolio-count">07 — etapas</span>
+  </div>
+  <div class="portfolio-grid">
+
+    <div class="portfolio-item reveal">
+      <div class="portfolio-img">
+        <div class="portfolio-img-inner">
+          <span class="portfolio-img-emoji">💧</span>
+          <div class="portfolio-img-title">Activar el<br>Drenaje</div>
+          <div class="portfolio-img-focus">Sistema linfático · Hidratación</div>
+        </div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-overlay-btn"><span>Día 1</span></div>
+        </div>
+      </div>
+      <div class="portfolio-meta">
+        <span class="portfolio-cat">Día 01 — Inicio</span>
+        <div class="portfolio-name">Activar el Sistema Linfático</div>
+        <div class="portfolio-tags">Hidratación activa · Drenaje · Shots matutinos</div>
+      </div>
+    </div>
+
+    <div class="portfolio-item reveal">
+      <div class="portfolio-img">
+        <div class="portfolio-img-inner">
+          <span class="portfolio-img-emoji">🌿</span>
+          <div class="portfolio-img-title">Reset<br>Digestivo</div>
+          <div class="portfolio-img-focus">Microbiota · Probióticos</div>
+        </div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-overlay-btn"><span>Día 2</span></div>
+        </div>
+      </div>
+      <div class="portfolio-meta">
+        <span class="portfolio-cat">Día 02 — Digestión</span>
+        <div class="portfolio-name">Reset del Sistema Digestivo</div>
+        <div class="portfolio-tags">Microbiota · Fibra prebiótica · Fermentados</div>
+      </div>
+    </div>
+
+    <div class="portfolio-item reveal">
+      <div class="portfolio-img">
+        <div class="portfolio-img-inner">
+          <span class="portfolio-img-emoji">🥗</span>
+          <div class="portfolio-img-title">Alimentación<br>Real</div>
+          <div class="portfolio-img-focus">Sin procesados · Antiinflamatorio</div>
+        </div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-overlay-btn"><span>Día 3</span></div>
+        </div>
+      </div>
+      <div class="portfolio-meta">
+        <span class="portfolio-cat">Día 03 — Nutrición</span>
+        <div class="portfolio-name">Protocolo de Alimentación Real</div>
+        <div class="portfolio-tags">Antiinflamatorios · Sin azúcar · Enzimas vivas</div>
+      </div>
+    </div>
+
+    <div class="portfolio-item reveal">
+      <div class="portfolio-img">
+        <div class="portfolio-img-inner">
+          <span class="portfolio-img-emoji">🌙</span>
+          <div class="portfolio-img-title">Ritmo<br>Circadiano</div>
+          <div class="portfolio-img-focus">Sueño · Cortisol · Horarios</div>
+        </div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-overlay-btn"><span>Día 4</span></div>
+        </div>
+      </div>
+      <div class="portfolio-meta">
+        <span class="portfolio-cat">Día 04 — Ritmo</span>
+        <div class="portfolio-name">Sincronizar el Reloj Biológico</div>
+        <div class="portfolio-tags">Sueño reparador · Cortisol · Cronobiología</div>
+      </div>
+    </div>
+
+    <div class="portfolio-item reveal">
+      <div class="portfolio-img">
+        <div class="portfolio-img-inner">
+          <span class="portfolio-img-emoji">🌊</span>
+          <div class="portfolio-img-title">Drenaje<br>Profundo</div>
+          <div class="portfolio-img-focus">Linfático · Movimiento fluido</div>
+        </div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-overlay-btn"><span>Día 5</span></div>
+        </div>
+      </div>
+      <div class="portfolio-meta">
+        <span class="portfolio-cat">Día 05 — Drenaje</span>
+        <div class="portfolio-name">Activación Linfática Profunda</div>
+        <div class="portfolio-tags">Yoga linfático · Cepillado seco · Hidratación máxima</div>
+      </div>
+    </div>
+
+    <div class="portfolio-item reveal">
+      <div class="portfolio-img">
+        <div class="portfolio-img-inner">
+          <span class="portfolio-img-emoji">🔥</span>
+          <div class="portfolio-img-title">Activar el<br>Metabolismo</div>
+          <div class="portfolio-img-focus">Termogénesis · Energía celular</div>
+        </div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-overlay-btn"><span>Día 6</span></div>
+        </div>
+      </div>
+      <div class="portfolio-meta">
+        <span class="portfolio-cat">Día 06 — Activación</span>
+        <div class="portfolio-name">Encender el Metabolismo</div>
+        <div class="portfolio-tags">Termogénesis · Movimiento activo · Energía sostenida</div>
+      </div>
+    </div>
+
+    <div class="portfolio-item reveal">
+      <div class="portfolio-img">
+        <div class="portfolio-img-inner">
+          <span class="portfolio-img-emoji">🌟</span>
+          <div class="portfolio-img-title">Nueva<br>Identidad</div>
+          <div class="portfolio-img-focus">Integrar · Proyectar · Celebrar</div>
+        </div>
+        <div class="portfolio-overlay">
+          <div class="portfolio-overlay-btn"><span>Día 7</span></div>
+        </div>
+      </div>
+      <div class="portfolio-meta">
+        <span class="portfolio-cat">Día 07 — Cierre</span>
+        <div class="portfolio-name">Integrar y Proyectar</div>
+        <div class="portfolio-tags">Neuroplasticidad · Hábitos · Identidad nueva</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testimonials" id="testimonios">
+  <div class="testimonials-header reveal">
+    <h2 class="testimonials-title">Ellas ya<br><em>lo vivieron.</em></h2>
+    <span style="font-size:10px;font-weight:900;text-transform:uppercase;letter-spacing:0.3em;opacity:0.4;">Resultados reales</span>
+  </div>
+  <div class="testimonials-grid reveal">
+    <div class="testimonial-card">
+      <div class="t-stars"><div class="t-star"></div><div class="t-star"></div><div class="t-star"></div><div class="t-star"></div><div class="t-star"></div></div>
+      <p class="t-quote">"Al día 3 noté la diferencia. Bajé 2,5 cm de cintura sin hacer dieta — solo seguí el plan. Era la primera vez en años que me despertaba sin la barriga hinchada."</p>
+      <div class="t-author">
+        <div class="t-avatar">M</div>
+        <div>
+          <div class="t-name">María G.</div>
+          <div class="t-role">México · −2,5 cm en 7 días</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="t-stars"><div class="t-star"></div><div class="t-star"></div><div class="t-star"></div><div class="t-star"></div><div class="t-star"></div></div>
+      <p class="t-quote">"Entendí POR QUÉ me inflamaba y eso lo cambió todo. No es magia: es ciencia aplicada. Semana 3 y la hinchazón no volvió. Perdí 3 kg de pura inflamación."</p>
+      <div class="t-author">
+        <div class="t-avatar">C</div>
+        <div>
+          <div class="t-name">Carolina R.</div>
+          <div class="t-role">Colombia · −3 kg de inflamación</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="t-stars"><div class="t-star"></div><div class="t-star"></div><div class="t-star"></div><div class="t-star"></div><div class="t-star"></div></div>
+      <p class="t-quote">"Intestino lento desde hace años. En 7 días regulé la digestión por completo. La app funciona offline — la usé en el metro, en el trabajo, en todos lados."</p>
+      <div class="t-author">
+        <div class="t-avatar">A</div>
+        <div>
+          <div class="t-name">Andrea V.</div>
+          <div class="t-role">Chile · Digestión regulada en D7</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="precio">
+  <div class="pricing-inner">
+    <div>
+      <span class="pricing-left-label reveal">Resumen completo</span>
+      <h2 class="pricing-title reveal">Todo lo que<br>obtienes por<br><em>$17.</em></h2>
+      <ul class="pricing-includes reveal">
+        <li class="pricing-item">
+          <div class="pricing-dot"></div>
+          <div>
+            <div class="pricing-item-label">Plan Principal</div>
+            <div class="pricing-item-title">Plan Intestino Libre Completo</div>
+            <div class="pricing-item-desc">7 días estructurados con misión diaria, nutrición, movimiento y ciencia.</div>
+          </div>
+        </li>
+        <li class="pricing-item">
+          <div class="pricing-dot"></div>
+          <div>
+            <div class="pricing-item-label">Academia</div>
+            <div class="pricing-item-title">15 Módulos de Educación</div>
+            <div class="pricing-item-desc">Lecciones sobre inflamación, microbiota, estrés y hormonas. De por vida.</div>
+          </div>
+        </li>
+        <li class="pricing-item">
+          <div class="pricing-dot"></div>
+          <div>
+            <div class="pricing-item-label">Guía + Recetas</div>
+            <div class="pricing-item-title">Guía de Alimentación + 10 Recetas en el App</div>
+            <div class="pricing-item-desc">Qué comer, qué evitar y 10 recetas antiinflamatorias completas dentro del app.</div>
+          </div>
+        </li>
+        <li class="pricing-item">
+          <div class="pricing-dot"></div>
+          <div>
+            <div class="pricing-item-label">Bonus VIP</div>
+            <div class="pricing-item-title">Recetario Detox VIP — 8 recetas en el app</div>
+            <div class="pricing-item-desc">Jugos, shots, caldos y tés avanzados dentro del app. Upsell incluye PDF descargable con 50 recetas completas.</div>
+          </div>
+        </li>
+        <li class="pricing-item">
+          <div class="pricing-dot"></div>
+          <div>
+            <div class="pricing-item-label">Smoothies VIP</div>
+            <div class="pricing-item-title">Smoothies Antiinflamatorios (Upsell)</div>
+            <div class="pricing-item-desc">PDF descargable con 50 smoothies en 4 colecciones: drenaje, energía, saciedad y quema activa.</div>
+          </div>
+        </li>
+        <li class="pricing-item">
+          <div class="pricing-dot"></div>
+          <div>
+            <div class="pricing-item-label">App PWA</div>
+            <div class="pricing-item-title">Instala en tu Celular · Offline</div>
+            <div class="pricing-item-desc">Sin app store. Funciona sin conexión. Acceso de por vida.</div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="reveal">
+      <div class="pricing-card">
+        <div class="pricing-card-header">
+          <span class="pricing-card-label">Intestino Libre</span>
+          <div class="pricing-old">Valor regular: $37</div>
+          <div class="pricing-price"><sup>$</sup>17</div>
+          <div class="pricing-note">Pago único · Sin suscripción</div>
+        </div>
+        <div class="pricing-card-body">
+          <div class="value-stack">
+            <div class="vs-row"><span class="vs-name">Plan Intestino Libre</span><span class="vs-price">$27</span></div>
+            <div class="vs-row"><span class="vs-name">Academia — 15 módulos</span><span class="vs-price">$37</span></div>
+            <div class="vs-row"><span class="vs-name">Recetario Detox VIP</span><span class="vs-price">$27</span></div>
+            <div class="vs-row"><span class="vs-name">Smoothies PDF (upsell)</span><span class="vs-price">$27</span></div>
+            <div class="vs-row"><span class="vs-name">App PWA Offline</span><span class="vs-price">$17</span></div>
+            <div class="vs-total-row">
+              <span class="vs-total-label">Tú pagas hoy</span>
+              <div class="vs-total-you">
+                <span class="vs-total-original">Valor $135</span>
+                <span class="vs-total-price">Solo $17</span>
+              </div>
+            </div>
+          </div>
+          <a href="https://go.hotmart.com/G105407648E" class="btn-buy accent-btn">Quiero empezar ahora →</a>
+          <span class="btn-micro">Acceso inmediato · Pago seguro · Sin suscripción</span>
+          <div class="order-bump" style="border:1.5px solid var(--accent);background:rgba(228,164,189,0.06);cursor:pointer;" onclick="this.querySelector(&#39;.bump-check&#39;).classList.toggle(&#39;checked&#39;);this.classList.toggle(&#39;bump-selected&#39;)">
+            <div style="display:flex;align-items:flex-start;gap:12px;">
+              <div class="bump-check" style="width:20px;height:20px;border-radius:4px;border:2px solid var(--accent);flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:background .2s;font-size:12px;font-weight:900;color:var(--bg);">✓</div>
+              <div>
+                <span class="bump-label">⚡ Sí, quiero agregar — Solo hoy</span>
+                <div class="bump-title">Ayuno Intermitente: Guía Definitiva</div>
+                <div class="bump-desc">Protocolo 16:8 completo + 20 recetas para tu ventana de alimentación. Potencia x3 los resultados del protocolo.</div>
+                <div class="bump-price">+ $7 — Un solo clic para agregar</div>
+              </div>
+            </div>
+          </div>
+          <style>.bump-selected{background:rgba(228,164,189,0.12)!important;}.bump-check.checked{background:var(--accent)!important;}</style>
+          <div class="guarantee">
+            <span style="font-size:20px;flex-shrink:0;">🛡️</span>
+            <span class="guarantee-text">Garantía de 7 días. Sin resultados, devolvemos el 100% sin preguntas.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FULL -->
+<section class="cta-full">
+  <div class="reveal">
+    <span class="cta-label">El momento es ahora</span>
+    <h2 class="cta-title">Cada día que esperas,<br>tu intestino <em>lo acumula.</em></h2>
+    <p style="font-size:16px;font-weight:500;color:rgba(253,248,243,0.5);max-width:480px;margin:0 auto 40px;line-height:1.65;">La inflamación crónica no se resuelve sola. Se resuelve cuando atacas la causa correcta — con el protocolo correcto. Por $17, hoy.</p>
+    <a href="https://go.hotmart.com/G105407648E" class="btn-cta">Quiero empezar hoy — $17</a>
+    <div style="margin-top:16px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.2em;color:rgba(253,248,243,0.25);">Garantía de 7 días · Sin riesgo</div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq">
+  <div class="faq-header reveal">
+    <h2 class="faq-title">Preguntas<br><em>frecuentes.</em></h2>
+  </div>
+  <div class="faq-grid reveal">
+    <div class="faq-item">
+      <span class="faq-num">01</span>
+      <div class="faq-q">¿Necesito hacer dieta estricta?</div>
+      <p class="faq-a">No. El protocolo no prohíbe ni restringe grupos de alimentos. Te guía hacia qué priorizar y qué reducir gradualmente, sin contar calorías.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-num">02</span>
+      <div class="faq-q">¿Funciona en iPhone y Android?</div>
+      <p class="faq-a">Sí. Es un PWA — se instala directamente desde el navegador. No necesitas la App Store ni Google Play. Funciona en ambos sistemas.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-num">03</span>
+      <div class="faq-q">¿Cuándo empiezo a ver resultados?</div>
+      <p class="faq-a">La mayoría reporta reducción visible de hinchazón entre el día 2 y 4. Los cambios de energía y digestión suelen notarse desde el primer día.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-num">04</span>
+      <div class="faq-q">¿Cuánto tiempo necesito por día?</div>
+      <p class="faq-a">Diseñado para mujeres ocupadas. Cada día tiene una misión en 5-10 minutos. El resto son hábitos que se integran a tu rutina sin esfuerzo.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-num">05</span>
+      <div class="faq-q">¿El acceso expira?</div>
+      <p class="faq-a">Nunca. Pagas una sola vez y el acceso es de por vida. Todo el contenido queda guardado en tu dispositivo y funciona sin internet.</p>
+    </div>
+    <div class="faq-item">
+      <span class="faq-num">06</span>
+      <div class="faq-q">¿Hay garantía de devolución?</div>
+      <p class="faq-a">7 días completos para probar el protocolo. Si no ves ningún resultado, devolvemos el 100% de tu dinero sin preguntas y sin burocracia.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">Intestino Libre</div>
+      <p class="footer-mission">Protocolo antiinflamatorio de 7 días diseñado para mujeres que quieren sentirse bien sin dietas extremas ni sacrificios innecesarios.</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2025 Intestino Libre · Todos los derechos reservados</span>
+    <span class="footer-copy">Plataforma: Hotmart</span>
+  </div>
+</footer>
+
+<script>
+// Show mobile proof pills on small screens
+(function() {
+  if (window.innerWidth <= 1024) {
+    var el = document.getElementById('mobile-proof');
+    if (el) el.style.display = 'flex';
+  }
+})();
+
+// Countdown timer — 24h from first visit, persists in localStorage
+(function() {
+  const KEY = 'desinflama_deadline';
+  let deadline = parseInt(localStorage.getItem(KEY));
+  if (!deadline || deadline < Date.now()) {
+    deadline = Date.now() + 24 * 60 * 60 * 1000;
+    localStorage.setItem(KEY, deadline);
+  }
+  function tick() {
+    const diff = deadline - Date.now();
+    if (diff <= 0) { document.getElementById('cd-h').textContent='00'; document.getElementById('cd-m').textContent='00'; document.getElementById('cd-s').textContent='00'; return; }
+    const h = Math.floor(diff / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-h').textContent = String(h).padStart(2,'0');
+    document.getElementById('cd-m').textContent = String(m).padStart(2,'0');
+    document.getElementById('cd-s').textContent = String(s).padStart(2,'0');
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+
+
+// ── UTM HERO PERSONALIZER ──────────────────────────────────────────────────
+(function() {
+  const params = new URLSearchParams(window.location.search);
+  const cr = (params.get('utm_content') || '').toLowerCase();
+
+  const variants = {
+    cr01: {
+      label: 'Protocolo antiinflamatorio · 7 días',
+      title: 'Si te<br>despiertas<br><em>inflamada…</em>',
+      body: 'No es grasa. No es retención sin motivo. Es inflamación crónica — y ninguna dieta lo resuelve porque ninguna ataca la causa real. Este protocolo sí.',
+      cta: 'Quiero desinflamar — $17',
+      proof: '<strong>+1.847 mujeres</strong> <span>ya lo comprobaron en 7 días</span>',
+      painTitle: 'Llevas meses<br>despertando con el<br>vientre <em>hinchado.</em>',
+      painSub: 'No es normal. Es inflamación activa — y cada día que pasa sin tratarla, se acumula. El protocolo de 7 días ataca la causa desde adentro.'
+    },
+    cr02: {
+      label: 'La verdad que nadie te dijo · 7 días',
+      title: 'No estás<br><em>gorda.</em><br>Estás<br>inflamada.',
+      body: 'Por eso las dietas no funcionan. Cortas comida, sufres, y la barriga sigue ahí. Porque el problema no es lo que comes — es cómo tu cuerpo reacciona.',
+      cta: 'Empezar el protocolo — $17',
+      proof: '<strong>+1.847 mujeres</strong> <span>descubrieron la diferencia</span>',
+      painTitle: 'Las dietas no<br>fallaron.<br>Atacaban el<br><em>problema equivocado.</em>',
+      painSub: 'La inflamación intestinal no se resuelve con restricción calórica. Se resuelve con el protocolo correcto — en 7 días.'
+    },
+    cr03: {
+      label: 'Cada día importa · protocolo 7 días',
+      title: 'Cada día<br>que esperas,<br>tu intestino<br><em>empeora.</em>',
+      body: 'La inflamación crónica no desaparece sola. Se acumula. Mientras sigues haciendo dietas que disfrazan el síntoma, la causa real sigue activa.',
+      cta: 'Actuar ahora — $17',
+      proof: '<strong>+1.847 mujeres</strong> <span>que decidieron no esperar más</span>',
+      painTitle: 'Lo que ignoras hoy<br>se convierte en<br><em>dolor crónico</em> mañana.',
+      painSub: 'Hinchazón. Fatiga. Digestión rota. Eso no es normal — es una señal. Y cada semana sin acción lo hace más difícil de revertir.'
+    },
+    cr04: {
+      label: 'La pregunta incómoda · 7 días',
+      title: '¿Ya te<br>acostumbraste<br>a sentirte<br><em>mal?</em>',
+      body: 'Tu cuerpo lleva años mandando señales. Barriga inflamada al despertar, energía que no vuelve, ropa que ya no cierra igual. Eso no es tu nuevo normal.',
+      cta: 'No me acostumbro — $17',
+      proof: '<strong>+1.847 mujeres</strong> <span>que volvieron a sentirse bien</span>',
+      painTitle: 'Te olvidaste de<br>cómo era no<br>sentirte <em>hinchada.</em>',
+      painSub: 'El 60% de personas con inflamación leve que no actúan desarrollan síntomas crónicos en menos de un año. El protocolo de 7 días fue diseñado para este perfil.'
+    }
+  };
+
+  const v = variants[cr];
+  if (!v) return;
+
+  // Apply with a smooth fade transition
+  const els = {
+    label:     document.getElementById('hero-label'),
+    title:     document.getElementById('hero-title'),
+    body:      document.getElementById('hero-body'),
+    cta:       document.getElementById('hero-cta-text'),
+    proof:     document.getElementById('proof-text'),
+    painTitle: document.getElementById('pain-title'),
+    painSub:   document.getElementById('pain-sub')
+  };
+
+  // Fade out, swap, fade in
+  const targets = Object.values(els).filter(Boolean);
+  targets.forEach(el => { el.style.transition = 'opacity 0.25s ease'; el.style.opacity = '0'; });
+
+  setTimeout(function() {
+    if (els.label)     els.label.textContent = v.label;
+    if (els.title)     els.title.innerHTML   = v.title;
+    if (els.body)      els.body.textContent  = v.body;
+    if (els.cta)       els.cta.textContent   = v.cta;
+    if (els.proof)     els.proof.innerHTML   = v.proof;
+    if (els.painTitle) els.painTitle.innerHTML = v.painTitle;
+    if (els.painSub)   els.painSub.textContent = v.painSub;
+    targets.forEach(el => { el.style.opacity = '1'; });
+  }, 260);
+
+  // Also persist UTM to all checkout links so Hotmart can track source
+  document.querySelectorAll('a[href*="hotmart.com"]').forEach(function(a) {
+    try {
+      const u = new URL(a.href);
+      u.searchParams.set('utm_source', params.get('utm_source') || 'meta');
+      u.searchParams.set('utm_medium', params.get('utm_medium') || 'paid');
+      u.searchParams.set('utm_campaign', params.get('utm_campaign') || 'intestino-libre');
+      u.searchParams.set('utm_content', cr);
+      a.href = u.toString();
+    } catch(e) {}
+  });
+})();
+// ── END UTM PERSONALIZER ───────────────────────────────────────────────────
+
+// Reveal on scroll
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.15 });
+reveals.forEach(el => observer.observe(el));
+</script>
+
+
+</body></html>
