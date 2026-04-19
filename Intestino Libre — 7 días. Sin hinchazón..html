@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0062)file:///C:/Users/gilbe/Downloads/intestino-libre-lp-utm_1.html -->
+<!-- saved from url=(0062)file:///C:/Users/gilbe/Downloads/intestino-libre-lp-utm_2.html -->
 <html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -401,6 +401,7 @@ nav {
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  isolation: isolate;
 }
 .portfolio-img-inner {
   width: 100%;
@@ -414,6 +415,8 @@ nav {
   text-align: center;
   filter: grayscale(100%);
   transition: filter 0.6s var(--ease), transform 0.6s var(--ease);
+  position: relative;
+  z-index: 1;
 }
 .portfolio-item:hover .portfolio-img-inner {
   filter: grayscale(0%);
@@ -436,12 +439,17 @@ nav {
 .portfolio-overlay {
   position: absolute;
   inset: 0;
+  z-index: 2;
   background: rgba(0,0,0,0);
   display: flex;
   align-items: center;
   justify-content: center;
   transition: background 0.4s var(--ease);
   border-radius: 16px;
+  pointer-events: none;
+}
+.portfolio-item:hover .portfolio-overlay {
+  pointer-events: all;
 }
 .portfolio-item:hover .portfolio-overlay { background: rgba(0,0,0,0.08); }
 .portfolio-overlay-btn {
@@ -1188,14 +1196,14 @@ footer {
 <!-- NAV -->
 <nav>
   <div class="nav-inner">
-    <a href="file:///C:/Users/gilbe/Downloads/intestino-libre-lp-utm_1.html#" class="nav-brand">Intestino Libre</a>
+    <a href="file:///C:/Users/gilbe/Downloads/intestino-libre-lp-utm_2.html#" class="nav-brand">Intestino Libre</a>
     <ul class="nav-links">
-      <li><a href="file:///C:/Users/gilbe/Downloads/intestino-libre-lp-utm_1.html#programa">Programa</a></li>
-      <li><a href="file:///C:/Users/gilbe/Downloads/intestino-libre-lp-utm_1.html#dias">7 Días</a></li>
-      <li><a href="file:///C:/Users/gilbe/Downloads/intestino-libre-lp-utm_1.html#testimonios">Resultados</a></li>
-      <li><a href="file:///C:/Users/gilbe/Downloads/intestino-libre-lp-utm_1.html#precio">Precio</a></li>
+      <li><a href="file:///C:/Users/gilbe/Downloads/intestino-libre-lp-utm_2.html#programa">Programa</a></li>
+      <li><a href="file:///C:/Users/gilbe/Downloads/intestino-libre-lp-utm_2.html#dias">7 Días</a></li>
+      <li><a href="file:///C:/Users/gilbe/Downloads/intestino-libre-lp-utm_2.html#testimonios">Resultados</a></li>
+      <li><a href="file:///C:/Users/gilbe/Downloads/intestino-libre-lp-utm_2.html#precio">Precio</a></li>
     </ul>
-    <a href="file:///C:/Users/gilbe/Downloads/intestino-libre-lp-utm_1.html#precio" class="nav-cta">Empezar — $17</a>
+    <a href="file:///C:/Users/gilbe/Downloads/intestino-libre-lp-utm_2.html#precio" class="nav-cta">Empezar — $17</a>
   </div>
 </nav>
 
@@ -1213,7 +1221,7 @@ footer {
     <span class="hero-label" id="hero-label">Protocolo antiinflamatorio · 7 días</span>
     <h1 class="hero-title" id="hero-title">Sin<br><em>dieta.</em><br>Sin<br>hinchazón.</h1>
     <p class="hero-body" id="hero-body">Te despiertas hinchada, con el vientre tenso y sin energía — y ninguna dieta lo resuelve. Este protocolo ataca la causa: la inflamación crónica.</p>
-    <a href="file:///C:/Users/gilbe/Downloads/intestino-libre-lp-utm_1.html#precio" class="hero-arrow-cta">
+    <a href="file:///C:/Users/gilbe/Downloads/intestino-libre-lp-utm_2.html#precio" class="hero-arrow-cta">
       <span id="hero-cta-text">Quiero empezar — $17</span>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"></path></svg>
     </a>
@@ -1285,9 +1293,9 @@ footer {
   <div class="countdown-timer">
     <div class="cd-unit"><span class="cd-num" id="cd-h">23</span><span class="cd-label">horas</span></div>
     <span class="cd-sep">:</span>
-    <div class="cd-unit"><span class="cd-num" id="cd-m">45</span><span class="cd-label">min</span></div>
+    <div class="cd-unit"><span class="cd-num" id="cd-m">37</span><span class="cd-label">min</span></div>
     <span class="cd-sep">:</span>
-    <div class="cd-unit"><span class="cd-num" id="cd-s">20</span><span class="cd-label">seg</span></div>
+    <div class="cd-unit"><span class="cd-num" id="cd-s">57</span><span class="cd-label">seg</span></div>
   </div>
 </div>
 
